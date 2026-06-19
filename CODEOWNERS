@@ -1,0 +1,8 @@
+# PRAJNA Frontend-Web Repository - CODEOWNERS
+# Global owners
+*                                         @HariniC @NavaneethKB
+
+# Repository configuration and workflows
+/.github/                                 @ChethanS @HariniC
+/scripts/                                 @ChethanS
+/docs/                                    @HariniC @NavaneethKB

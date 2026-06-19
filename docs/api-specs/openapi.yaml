@@ -1,0 +1,162 @@
+openapi: 3.0.3
+info:
+  title: PRAJNA - Faculty Data Microservices API
+  description: REST API definition for Faculty Profile, Teaching, Research, Achievements, Growth, and Lifecycle modules.
+  version: 1.0.0
+servers:
+  - url: https://api.prajna.gitam.edu/v1
+    description: Production Environment
+  - url: https://api-staging.prajna.gitam.edu/v1
+    description: Staging Environment
+  - url: http://localhost:3000/v1
+    description: Local Offline Environment
+
+paths:
+  /faculty/profile:
+    get:
+      summary: Retrieve authenticated faculty profile details
+      operationId: getFacultyProfile
+      security:
+        - CognitoUserPool: []
+      responses:
+        '200':
+          description: Successful profile retrieval
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FacultyProfile'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+
+  /faculty/publications:
+    post:
+      summary: Add a new publication
+      operationId: addPublication
+      security:
+        - CognitoUserPool: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PublicationRequest'
+      responses:
+        '201':
+          description: Publication added and pending review
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  publicationId:
+                    type: string
+                  status:
+                    type: string
+                    example: pending
+        '400':
+          description: Validation error or duplicate DOI
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+
+components:
+  securitySchemes:
+    CognitoUserPool:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: Cognito JWT id_token (format: "Bearer <token>")
+
+  responses:
+    UnauthorizedError:
+      description: Access token is missing or invalid
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: Unauthorized
+    InternalServerError:
+      description: Internal server error occurred
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: Internal server error
+
+  schemas:
+    FacultyProfile:
+      type: object
+      required:
+        - facultyId
+        - email
+        - firstName
+        - lastName
+        - department
+        - campus
+      properties:
+        facultyId:
+          type: string
+          example: "emp_12345"
+        email:
+          type: string
+          format: email
+          example: "faculty@gitam.edu"
+        firstName:
+          type: string
+          example: "Greeshmitha"
+        lastName:
+          type: string
+          example: "Bingumalla"
+        department:
+          type: string
+          example: "Computer Science"
+        campus:
+          type: string
+          enum: [Visakhapatnam, Hyderabad, Bengaluru]
+          example: "Bengaluru"
+        orcidId:
+          type: string
+          example: "0000-0002-1825-0097"
+        scopusId:
+          type: string
+          example: "57211354000"
+
+    PublicationRequest:
+      type: object
+      required:
+        - title
+        - authors
+        - doi
+        - journalName
+        - year
+      properties:
+        title:
+          type: string
+          example: "Cloud-Native Serverless Orchestration for Higher Education"
+        authors:
+          type: array
+          items:
+            type: string
+          example: ["Greeshmitha B.", "Chethan S."]
+        doi:
+          type: string
+          example: "10.1109/CLOUD.2026.12345"
+        journalName:
+          type: string
+          example: "IEEE Transactions on Cloud Computing"
+        year:
+          type: integer
+          minimum: 2000
+          example: 2026
+        proofS3Key:
+          type: string
+          example: "proofs/publications/doi-12345.pdf"

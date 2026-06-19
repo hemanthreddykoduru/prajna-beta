@@ -1,0 +1,44 @@
+name: PRAJNA CI Pipeline
+
+on:
+  push:
+    branches:
+      - mainline
+      - release
+  pull_request:
+    branches:
+      - mainline
+      - release
+
+jobs:
+  validate:
+    name: Code Quality & Build Validation
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Security Check (npm audit)
+        run: npm audit --audit-level=high || echo "Vulnerabilities found."
+
+      - name: Check Code Style (ESLint)
+        run: npm run lint
+
+      - name: Type Checking (TypeScript)
+        run: npm run typecheck
+
+      - name: Run Unit Tests
+        run: npm run test
+
+      - name: Build Production Web App
+        run: npm run build
