@@ -8,20 +8,13 @@ Welcome to the PRAJNA Faculty Intelligence Platform development team! This guide
 
 To coordinate work across 30 developers, we use a structured branch layout. No developer is allowed to commit directly to protected branches.
 
-```mermaid
-gitGraph
-    commit id: "Initial"
-    branch feature/profile-crud
-    checkout feature/profile-crud
-    commit id: "add controller"
-    commit id: "add tests"
-    checkout main
-    branch release/v1.0
-    checkout feature/profile-crud
-    checkout main
-    merge feature/profile-crud tag: "v1.0.0-rc"
-    checkout release/v1.0
-    merge main
+```text
+                          ┌── feature/m7-profile-crud (working branch)
+                          │   [commit] ── [commit] 
+                         /                       \
+[mainline] (protected) ─●─────────────────────────●── [PR review & squash-merge]
+                         \                       /
+                          └── release (protected) ────────────────────────● [Release merge]
 ```
 
 ### Protected Branches

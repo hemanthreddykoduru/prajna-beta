@@ -56,14 +56,14 @@ prajna-frontend-web/
 ## 🛡️ Governance & Quality Gates
 
 1. **Branching Strategy:** No direct pushes to `mainline` or `release`. Work must take place in `feature/*`, `bugfix/*`, `hotfix/*`, or `chore/*`.
-2. **Review Policy:** Every PR must be reviewed by the respective Module Owner (defined in [CODEOWNERS](file:///Users/Santosh/Prajna/{repo_name}/CODEOWNERS)) and at least one Project Lead before merge.
+2. **Review Policy:** Every PR must be reviewed by the respective Module Owner (defined in [CODEOWNERS](file:///Users/Santosh/Prajna/prajna-frontend-web/CODEOWNERS)) and at least one Project Lead before merge.
 3. **CI/CD Quality Gates:** All code must pass type safety, lint checks, test suites, and infrastructure vulnerability scans before landing.
 
-For detail-oriented rules, read the [Developer Contributing Guidelines](file:///Users/Santosh/Prajna/{repo_name}/CONTRIBUTING.md).
+For detail-oriented rules, read the [Developer Contributing Guidelines](file:///Users/Santosh/Prajna/prajna-frontend-web/CONTRIBUTING.md).
 
 ---
 
 ## 📞 Support & Contacts
 - **Project Lead:** Harini C (@HariniC)
 - **Principal Software Architect:** @Navaneeth Kumar Buddi
-- **Repository Coordinator:** Chethan S (@ChethanS)
+- **Repository Coordinator:** Hemanth Reddy (@HemanthReddy)
