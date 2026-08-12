@@ -1,4 +1,3 @@
-import { useAuth } from './AuthContext';
 
 const BASE_URL = import.meta.env.VITE_API_GATEWAY_URL || 'https://uvremjs67f.execute-api.ap-south-2.amazonaws.com/dev';
 

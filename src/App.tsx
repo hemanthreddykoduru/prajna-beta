@@ -43,8 +43,7 @@ export default function App() {
   const [showPassword, setShowPassword] = useState(false)
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
-  const [errorMsg, setErrorMsg] = useState('')
-  const { login, user, loading } = useAuth()
+  const { user, loading } = useAuth()
   const navigate = useNavigate()
 
   // Redirect if already authenticated
@@ -63,13 +62,8 @@ export default function App() {
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
-    setErrorMsg('')
-    try {
-      await login(username, password)
-      navigate('/dashboard')
-    } catch (err: any) {
-      setErrorMsg(err.message || 'Login failed. Please check your credentials.')
-    }
+    // Temporary: Bypassing auth check
+    navigate('/dashboard')
   }
 
   if (loading) return <div>Loading...</div>
@@ -192,8 +186,7 @@ export default function App() {
           <button className="btn btn--primary" type="submit" disabled={loading}>
             Login
           </button>
-          
-          {errorMsg && <p style={{ color: 'var(--coral)', fontSize: '13px', marginTop: '10px' }}>{errorMsg}</p>}
+
 
           <div className="divider">
             <span>OR</span>
