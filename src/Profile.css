@@ -1,0 +1,250 @@
+/* Faculty Profile (Figma 2019:20494) — builds on Dashboard.css + PrajnaScore.css */
+
+.profile__actions {
+  display: flex;
+  gap: 12px;
+}
+
+.chip--lg {
+  padding: 11px 16px;
+  font-size: 14px;
+  background: var(--surface);
+}
+
+.chip--lg img {
+  width: 16px;
+  height: 16px;
+}
+
+/* ---------- Identity card ---------- */
+
+.identity {
+  gap: 20px;
+  padding: 24px 24px 0;
+}
+
+.identity__row {
+  display: flex;
+  gap: 24px;
+}
+
+.identity__avatar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 108px;
+  width: 108px;
+  height: 108px;
+  border-radius: 50%;
+  background: var(--green);
+  color: var(--antique-white);
+  font-size: 34px;
+  font-weight: 700;
+}
+
+.identity__online {
+  position: absolute;
+  right: 6px;
+  bottom: 8px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid var(--surface);
+  background: #3ec98a;
+}
+
+.identity__text h2 {
+  margin: 0 0 4px;
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.identity__role {
+  margin: 0 0 10px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--green);
+}
+
+.identity__line {
+  margin: 0 0 2px;
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+
+.identity__meta {
+  margin: 6px 0 0;
+  font-size: 12px;
+  color: var(--ink-faint);
+}
+
+.profile__tabs {
+  display: flex;
+  gap: 24px;
+  border-top: 1px solid var(--hairline);
+  padding-top: 4px;
+  overflow-x: auto;
+}
+
+.profile__tab {
+  padding: 12px 0;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  background: none;
+  font: inherit;
+  font-size: 13px;
+  color: var(--ink-soft);
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.profile__tab--active {
+  border-bottom-color: var(--green);
+  color: var(--ink);
+  font-weight: 600;
+}
+
+/* ---------- Stat strip ---------- */
+
+.stat-strip--profile .stat-mini {
+  gap: 8px;
+  padding: 16px;
+  border: 1px solid var(--hairline);
+  box-shadow: none;
+}
+
+.stat-mini__big {
+  font-size: 26px;
+  font-weight: 700;
+}
+
+/* ---------- Body ---------- */
+
+.row--profile {
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.profile__main {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.profile__side {
+  display: flex;
+  flex: 0 0 320px;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.profile__side .card,
+.about {
+  gap: 14px;
+  padding: 20px;
+}
+
+.profile__heading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.profile__heading img {
+  width: 18px;
+  height: 18px;
+}
+
+.about__body {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+
+.about__label {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tag {
+  padding: 6px 12px;
+  border: 1px solid var(--green);
+  border-radius: 9999px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--green);
+}
+
+.tag--solid {
+  border-color: transparent;
+  background: var(--light-green);
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+
+.snapshot {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.snapshot__row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+  font-size: 13px;
+}
+
+.snapshot__pct {
+  color: var(--ink-soft);
+}
+
+.snapshot .track {
+  display: block;
+}
+
+@media (max-width: 1180px) {
+  .row--profile {
+    flex-wrap: wrap;
+  }
+
+  .profile__main,
+  .profile__side {
+    flex: 1 1 320px;
+  }
+
+  .identity__row {
+    flex-wrap: wrap;
+  }
+}

@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react'
 import Shell from './Shell'
 
 import iconPlus from './assets/dash/plus.svg'
@@ -61,6 +62,26 @@ const goals = [
 const GOAL_PERCENT = 68
 
 export default function Dashboard() {
+  const [focusSeconds, setFocusSeconds] = useState(5048) // 01:24:08 initial
+  const [isFocusRunning, setIsFocusRunning] = useState(true)
+
+  useEffect(() => {
+    let interval: ReturnType<typeof setInterval>
+    if (isFocusRunning) {
+      interval = setInterval(() => {
+        setFocusSeconds((s) => s + 1)
+      }, 1000)
+    }
+    return () => clearInterval(interval)
+  }, [isFocusRunning])
+
+  const formatTime = (totalSeconds: number) => {
+    const h = Math.floor(totalSeconds / 3600).toString().padStart(2, '0')
+    const m = Math.floor((totalSeconds % 3600) / 60).toString().padStart(2, '0')
+    const s = (totalSeconds % 60).toString().padStart(2, '0')
+    return `${h}:${m}:${s}`
+  }
+
   return (
     <Shell active="Home">
       <div className="pagehead">
@@ -92,12 +113,12 @@ export default function Dashboard() {
                 <h2>Teaching &amp; Research Activity</h2>
                 <span className="card__meta">This week</span>
               </div>
-              <div className="chart">
+              <div className="analytics-chart">
                 {chart.map((b, i) => (
-                  <div className="chart__col" key={i}>
-                    {b.badge && <span className="chart__badge">{b.badge}</span>}
-                    <span className={`chart__bar chart__bar--${b.tone}`} style={{ height: b.h }} />
-                    <span className="chart__day">{b.day}</span>
+                  <div className="analytics-chart__col" key={i}>
+                    {b.badge && <span className="analytics-chart__badge">{b.badge}</span>}
+                    <span className={`analytics-chart__bar analytics-chart__bar--${b.tone}`} style={{ height: b.h }} />
+                    <span className="analytics-chart__day">{b.day}</span>
                   </div>
                 ))}
               </div>
@@ -199,22 +220,33 @@ export default function Dashboard() {
               <div className="card__head">
                 <h2>Focus Timer</h2>
                 <span className="focus__state">
-                  <span className="dot dot--light" />
-                  Running
+                  <span className={`dot ${isFocusRunning ? 'dot--light' : 'dot--coral'}`} />
+                  {isFocusRunning ? 'Running' : 'Paused'}
                 </span>
               </div>
               <div className="focus__clock">
-                <p className="focus__time">01:24:08</p>
+                <p className="focus__time">{formatTime(focusSeconds)}</p>
                 <p className="focus__sub">Today's deep work</p>
               </div>
               <div className="focus__actions">
-                <button className="focus__btn focus__btn--primary" type="button" aria-label="Pause">
-                  <img src={iconPause} alt="" />
+                <button 
+                  className={`focus__btn ${isFocusRunning ? 'focus__btn--primary' : ''}`} 
+                  type="button" 
+                  aria-label={isFocusRunning ? "Pause" : "Start"}
+                  onClick={() => setIsFocusRunning(!isFocusRunning)}
+                  style={!isFocusRunning ? { background: 'var(--green)', color: 'white' } : {}}
+                >
+                  {isFocusRunning ? <img src={iconPause} alt="Pause" /> : '▶'}
                 </button>
-                <button className="focus__btn" type="button" aria-label="Stop">
-                  <img src={iconStop} alt="" />
+                <button 
+                  className="focus__btn" 
+                  type="button" 
+                  aria-label="Stop"
+                  onClick={() => { setIsFocusRunning(false); setFocusSeconds(0); }}
+                >
+                  <img src={iconStop} alt="Stop" />
                 </button>
-                <span className="focus__hint">Pause session</span>
+                <span className="focus__hint">{isFocusRunning ? 'Pause session' : 'Resume session'}</span>
               </div>
             </section>
           </div>

@@ -362,7 +362,7 @@
   gap: 20px;
 }
 
-.chart {
+.analytics-chart {
   display: flex;
   flex: 1;
   align-items: flex-end;
@@ -370,7 +370,7 @@
   min-height: 0;
 }
 
-.chart__col {
+.analytics-chart__col {
   display: flex;
   flex: 1;
   flex-direction: column;
@@ -380,21 +380,21 @@
   height: 100%;
 }
 
-.chart__bar {
+.analytics-chart__bar {
   width: 34px;
   border-radius: 10px;
   flex: 0 0 auto;
 }
 
-.chart__bar--light {
+.analytics-chart__bar--light {
   background: var(--light-green);
 }
 
-.chart__bar--dark {
+.analytics-chart__bar--dark {
   background: var(--green);
 }
 
-.chart__badge {
+.analytics-chart__badge {
   padding: 4px 8px;
   border-radius: 9999px;
   background: var(--ink);
@@ -403,7 +403,7 @@
   font-weight: 700;
 }
 
-.chart__day {
+.analytics-chart__day {
   font-size: 12px;
   font-weight: 500;
   color: var(--ink-soft);

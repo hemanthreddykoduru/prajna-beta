@@ -1,4 +1,6 @@
 import { useEffect, useState, type FormEvent } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { useAuth } from './AuthContext'
 import './App.css'
 import { FIVE_MINUTES, quoteAt } from './quotes'
 
@@ -39,6 +41,18 @@ const features = [
 
 export default function App() {
   const [showPassword, setShowPassword] = useState(false)
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
+  const [errorMsg, setErrorMsg] = useState('')
+  const { login, user, loading } = useAuth()
+  const navigate = useNavigate()
+
+  // Redirect if already authenticated
+  useEffect(() => {
+    if (user && !loading) {
+      navigate('/dashboard', { replace: true })
+    }
+  }, [user, loading, navigate])
 
   // re-render on the 5-minute boundary so a page left open keeps rotating
   const [[quote, author], setQuote] = useState(() => quoteAt(Date.now()))
@@ -47,12 +61,18 @@ export default function App() {
     return () => clearInterval(id)
   }, [])
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
-    const data = new FormData(e.currentTarget)
-    console.log(Object.fromEntries(data))
-    window.location.assign('/dashboard')
+    setErrorMsg('')
+    try {
+      await login(username, password)
+      navigate('/dashboard')
+    } catch (err: any) {
+      setErrorMsg(err.message || 'Login failed. Please check your credentials.')
+    }
   }
+
+  if (loading) return <div>Loading...</div>
 
   return (
     <div className="login">
@@ -128,7 +148,7 @@ export default function App() {
             </label>
             <div className="input">
               <img className="input__icon" src={iconUser} alt="" />
-              <input id="username" name="username" type="text" placeholder="Enter your email or username" required />
+              <input id="username" name="username" type="text" placeholder="Enter your email or username" required value={username} onChange={e => setUsername(e.target.value)} />
             </div>
           </div>
 
@@ -149,6 +169,8 @@ export default function App() {
                 type={showPassword ? 'text' : 'password'}
                 placeholder="Enter your password"
                 required
+                value={password}
+                onChange={e => setPassword(e.target.value)}
               />
               <button
                 type="button"
@@ -167,9 +189,11 @@ export default function App() {
             Remember me
           </label>
 
-          <button className="btn btn--primary" type="submit">
+          <button className="btn btn--primary" type="submit" disabled={loading}>
             Login
           </button>
+          
+          {errorMsg && <p style={{ color: 'var(--coral)', fontSize: '13px', marginTop: '10px' }}>{errorMsg}</p>}
 
           <div className="divider">
             <span>OR</span>

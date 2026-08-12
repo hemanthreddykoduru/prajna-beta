@@ -20,7 +20,7 @@ import prajnaLogo from './assets/PRAJNA-LOGO-CROP.jpeg'
 const nav = [
   { icon: navHome, label: 'Home', href: '/dashboard' },
   { icon: navScore, label: 'PRAJNA Score', href: '/prajnascore' },
-  { icon: navProfile, label: 'Profile' },
+  { icon: navProfile, label: 'Profile', href: '/profile' },
   { icon: navTeaching, label: 'Teaching' },
   { icon: navResearch, label: 'Research' },
   { icon: navAdmin, label: 'Admin' },
@@ -36,9 +36,9 @@ export default function Shell({ active, children }: { active: string; children: 
   return (
     <div className="dash">
       <nav className="sidebar">
-        <div className="sidebar__logo">
+        <a href="/dashboard" className="sidebar__logo" style={{ textDecoration: 'none' }}>
           <img src={prajnaLogo} alt="PRAJNA" style={{ maxHeight: '56px', width: 'auto', objectFit: 'contain' }} />
-        </div>
+        </a>
         <p className="sidebar__section">MENU</p>
         <ul className="sidebar__nav">
           {nav.map((item) => (

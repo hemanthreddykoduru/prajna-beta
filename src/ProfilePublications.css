@@ -1,0 +1,163 @@
+/* Publications tab imports (Figma 2019:14078 / 20978) */
+
+.import__notice {
+  margin: 0;
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: var(--tint-gold);
+  font-size: 12px;
+  color: var(--gold);
+}
+
+.import__heading {
+  margin: 0;
+  font-size: 12px;
+  color: var(--ink-soft);
+}
+
+.import__list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.import__list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border: 1px solid var(--hairline);
+  border-radius: 10px;
+}
+
+.import__list input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--green);
+  margin: 0;
+}
+
+.import__text {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.import__title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--green);
+}
+
+.import__meta {
+  font-size: 11px;
+  color: var(--ink-faint);
+}
+
+.import__badge {
+  padding: 4px 10px;
+  border: 1px solid var(--hairline);
+  border-radius: 9999px;
+  font-size: 11px;
+  color: var(--ink-soft);
+}
+
+.import__history {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 0;
+  padding-left: 18px;
+  font-size: 12px;
+  color: var(--ink-soft);
+}
+
+.hbars__track--gold span {
+  background: var(--gold);
+}
+
+.hbars__track--coral span {
+  background: #dd736e;
+}
+
+.connections {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.connections li {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px;
+  border: 1px solid var(--hairline);
+  border-radius: 10px;
+}
+
+.connections__text {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.connections__name {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.connections__sync {
+  font-size: 11px;
+  color: var(--ink-faint);
+}
+
+.chip--danger {
+  border-color: #dd736e;
+  color: #dd736e;
+}
+
+.kv__prose {
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.reviews {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.reviews li {
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: var(--canvas);
+}
+
+.reviews__meta {
+  margin: 0 0 4px;
+  font-size: 11px;
+}
+
+.reviews__author {
+  font-weight: 700;
+  color: var(--green);
+}
+
+.reviews__body {
+  margin: 0;
+  font-size: 12px;
+  color: var(--ink-soft);
+}
