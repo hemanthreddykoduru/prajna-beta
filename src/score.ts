@@ -50,11 +50,41 @@ export const bandProgress = (value: number) => {
   return ((value - b.minScore) / (b.maxScoreExclusive - b.minScore)) * 100
 }
 
-export const atTopTier = score.pointsToNextTier === 0
+/**
+ * `let`, not `const`, so it stays correct after {@link hydrateScore}.
+ *
+ * ES module live bindings mean importers see the updated value, provided they
+ * read it at render time rather than copying it into a module-scope const.
+ */
+export let atTopTier = score.pointsToNextTier === 0
 
-// the nine cluster scores must add up to the total, and none may exceed its ceiling
-console.assert(
-  Math.abs(score.clusters.reduce((sum, c) => sum + c.score, 0) - score.totalScore) < 0.01 &&
-    score.clusters.every((c) => c.score <= c.maxPoints),
-  'cluster scores do not reconcile with totalScore',
-)
+/** True once real API data has replaced the bundled mock. */
+export let isLiveScore = false
+
+/**
+ * Replaces the mock payload with a real `GET /score/{facultyId}` response.
+ *
+ * Mutates in place via `Object.assign` rather than reassigning, because every
+ * screen imports the `score` binding directly. Call this BEFORE the screen
+ * modules are imported — some of them derive module-scope constants from
+ * `score` (e.g. `bandOf(score.totalScore)`), which would otherwise capture the
+ * mock. `main.tsx` does this by importing the screens dynamically after
+ * hydration.
+ */
+export function hydrateScore(next: DashboardScoreResponse): void {
+  Object.assign(score, next)
+  atTopTier = next.pointsToNextTier === 0
+  isLiveScore = true
+}
+
+// The nine cluster scores must add up to the total, and none may exceed its
+// ceiling. Only meaningful for the bundled mock: a live response can legitimately
+// omit clusters (the currently deployed score engine does), and the API is the
+// authority on its own totals either way.
+if (!isLiveScore) {
+  console.assert(
+    Math.abs(score.clusters.reduce((sum, c) => sum + c.score, 0) - score.totalScore) < 0.01 &&
+      score.clusters.every((c) => c.score <= c.maxPoints),
+    'cluster scores do not reconcile with totalScore',
+  )
+}

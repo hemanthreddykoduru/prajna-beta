@@ -1,6 +1,8 @@
 import { useEffect, useState, type FormEvent } from 'react'
 import './App.css'
 import { FIVE_MINUTES, quoteAt } from './quotes'
+import { isBackendConfigured } from './config'
+import { signIn, AuthError } from './auth'
 
 import campusBengaluru from './assets/campus3.png'
 import campusHyderabad from './assets/campus.png'
@@ -39,6 +41,8 @@ const features = [
 
 export default function App() {
   const [showPassword, setShowPassword] = useState(false)
+  const [submitting, setSubmitting] = useState(false)
+  const [error, setError] = useState<string | null>(null)
 
   // re-render on the 5-minute boundary so a page left open keeps rotating
   const [[quote, author], setQuote] = useState(() => quoteAt(Date.now()))
@@ -47,11 +51,32 @@ export default function App() {
     return () => clearInterval(id)
   }, [])
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
+    setError(null)
+
     const data = new FormData(e.currentTarget)
-    console.log(Object.fromEntries(data))
-    window.location.assign('/dashboard')
+    const username = String(data.get('username') ?? '').trim()
+    const password = String(data.get('password') ?? '')
+
+    // No backend configured (local design work): keep the original behaviour
+    // of walking straight into the dashboard on bundled sample data.
+    if (!isBackendConfigured) {
+      window.location.assign('/dashboard')
+      return
+    }
+
+    setSubmitting(true)
+    try {
+      await signIn(username, password)
+      // Full navigation, not client-side routing: the screens derive
+      // module-scope constants from the score payload, so they must be
+      // imported fresh after the bootstrap in main.tsx hydrates it.
+      window.location.assign('/dashboard')
+    } catch (err) {
+      setError(err instanceof AuthError ? err.message : 'Sign-in failed. Please try again.')
+      setSubmitting(false)
+    }
   }
 
   return (
@@ -167,8 +192,14 @@ export default function App() {
             Remember me
           </label>
 
-          <button className="btn btn--primary" type="submit">
-            Login
+          {error && (
+            <p className="form__error" role="alert">
+              {error}
+            </p>
+          )}
+
+          <button className="btn btn--primary" type="submit" disabled={submitting}>
+            {submitting ? 'Signing in…' : 'Login'}
           </button>
 
           <div className="divider">
