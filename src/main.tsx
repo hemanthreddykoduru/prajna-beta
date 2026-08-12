@@ -31,14 +31,23 @@ async function bootstrap() {
     }
   }
 
-  const [{ default: App }, { default: Dashboard }, { default: PrajnaScore }, { default: TierProgress }, { default: History }] =
-    await Promise.all([
-      import('./App.tsx'),
-      import('./Dashboard.tsx'),
-      import('./PrajnaScore.tsx'),
-      import('./TierProgress.tsx'),
-      import('./History.tsx'),
-    ])
+  const [
+    { default: App },
+    { default: Dashboard },
+    { default: PrajnaScore },
+    { default: TierProgress },
+    { default: History },
+    { default: Leaderboard },
+    { default: Unavailable },
+  ] = await Promise.all([
+    import('./App.tsx'),
+    import('./Dashboard.tsx'),
+    import('./PrajnaScore.tsx'),
+    import('./TierProgress.tsx'),
+    import('./History.tsx'),
+    import('./Leaderboard.tsx'),
+    import('./Unavailable.tsx'),
+  ])
 
   /** Sends unauthenticated visitors to the login screen. */
   function Protected({ children }: { children: React.ReactNode }) {
@@ -57,6 +66,8 @@ async function bootstrap() {
           <Route path="/prajnascore" element={<Protected><PrajnaScore /></Protected>} />
           <Route path="/prajnascore/tier" element={<Protected><TierProgress /></Protected>} />
           <Route path="/prajnascore/history" element={<Protected><History /></Protected>} />
+          <Route path="/leaderboard" element={<Protected><Leaderboard /></Protected>} />
+          <Route path="/unavailable/:label" element={<Protected><Unavailable /></Protected>} />
         </Routes>
       </BrowserRouter>
     </StrictMode>,

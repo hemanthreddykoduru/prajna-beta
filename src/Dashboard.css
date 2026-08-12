@@ -865,3 +865,33 @@
   background: #21a366;
   vertical-align: middle;
 }
+
+/* Sidebar tabs whose backing service is not deployed. */
+.navitem--blocked { opacity: 0.55; }
+.navitem__soon {
+  margin-left: auto;
+  padding: 1px 6px;
+  border-radius: 999px;
+  background: #eceff3;
+  color: #6b7482;
+  font-size: 10px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+/* Leaderboard */
+.lb-tabs { display: flex; gap: 8px; margin-bottom: 14px; }
+.lb-tab {
+  padding: 6px 14px;
+  border: 1px solid #dfe4ea;
+  border-radius: 999px;
+  background: #fff;
+  color: #5b6472;
+  font-size: 13px;
+  cursor: pointer;
+}
+.lb-tab--on { border-color: #21a366; background: #eaf7f0; color: #157a4b; font-weight: 600; }
+.lb-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.lb-table th, .lb-table td { padding: 10px 12px; text-align: left; border-bottom: 1px solid #eef1f5; }
+.lb-table th { color: #8a93a1; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.03em; }
+.lb-row--me { background: #f2fbf6; font-weight: 600; }
