@@ -2,42 +2,43 @@
   "name": "prajna-frontend-web",
   "version": "1.0.0",
   "description": "PRAJNA mobile-first React + TypeScript PWA frontend code.",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "scripts": {
-    "build": "tsc",
-    "watch": "tsc -w",
-    "test": "jest",
-    "lint": "eslint 'src/**/*.ts' 'tests/**/*.ts' --fix",
-    "typecheck": "tsc --noEmit",
-    "validate": "npm run lint && npm run typecheck && npm run test"
-  },
-  "keywords": [
-    "aws",
-    "cdk",
-    "typescript",
-    "serverless",
-    "prajna"
-  ],
+  "private": true,
+  "type": "module",
   "author": "PRAJNA-Core Team",
   "license": "MIT",
+  "keywords": [
+    "prajna",
+    "react",
+    "typescript",
+    "pwa",
+    "frontend"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "oxlint",
+    "preview": "vite preview",
+    "typecheck": "tsc -b --noEmit",
+    "test": "jest",
+    "validate": "npm run lint && npm run typecheck && npm run build"
+  },
   "dependencies": {
-    
-    "constructs": "^10.3.0"
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.24",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.4",
+    "oxlint": "^1.75.0",
+    "typescript": "~6.0.2",
+    "vite": "^8.2.0",
+    "@types/jest": "^29.5.12",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.1.2"
   },
   "overrides": {
     "js-yaml": "^4.2.0"
-  },
-  "devDependencies": {
-    "@types/aws-lambda": "^8.10.134",
-    "@types/jest": "^29.5.12",
-    "@types/node": "^20.11.24",
-    "@typescript-eslint/eslint-plugin": "^7.1.0",
-    "@typescript-eslint/parser": "^7.1.0",
-    "cdk-nag": "^2.28.171",
-    "eslint": "^8.57.0",
-    "jest": "^29.7.0",
-    "ts-jest": "^29.1.2",
-    "typescript": "^5.3.3"
   }
 }

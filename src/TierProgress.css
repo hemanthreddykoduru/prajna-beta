@@ -1,0 +1,385 @@
+/* Tier Progress tab (Figma 3:3282) — builds on Dashboard.css + PrajnaScore.css */
+
+.kicker {
+  margin: 0;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--ink-faint);
+}
+
+.muted-13 {
+  display: block;
+  margin: 0;
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+
+.tier-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  color: var(--antique-white);
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.tier-badge--emerging_faculty {
+  background: var(--ink-faint);
+}
+.tier-badge--bronze {
+  background: #ccba8d;
+}
+.tier-badge--silver {
+  background: var(--ink-soft);
+}
+.tier-badge--gold {
+  background: var(--gold);
+}
+.tier-badge--platinum {
+  background: var(--blue);
+}
+.tier-badge--distinguished_fellow {
+  background: var(--green);
+}
+
+.tier-badge--mini {
+  width: 28px;
+  height: 28px;
+  font-size: 12px;
+  color: #fff;
+}
+
+/* ---------- Tier overview ---------- */
+
+.row--tier {
+  gap: 24px;
+  align-items: stretch;
+}
+
+.tier-now {
+  flex: 0 0 416px;
+  gap: 16px;
+  padding: 24px;
+}
+
+.tier-now__badge-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.tier-now .tier-badge {
+  width: 64px;
+  height: 64px;
+  font-size: 26px;
+}
+
+.tier-now__name {
+  display: block;
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.tier-now hr {
+  width: 100%;
+  height: 1px;
+  border: 0;
+  margin: 0;
+  background: var(--hairline);
+}
+
+.tier-now__score {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.tier-next {
+  flex: 1;
+  min-width: 0;
+  gap: 16px;
+  padding: 24px;
+}
+
+.tier-next h2 {
+  font-size: 16px;
+}
+
+.tier-next__ends {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tier-next__label {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.tier-next__goal {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--ink-soft);
+}
+
+.track--thick {
+  height: 14px;
+  border-radius: 7px;
+  background: var(--hairline);
+}
+
+.tier-next__remaining {
+  margin: 0;
+  text-align: right;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* ---------- Ladder ---------- */
+
+.ladder-card {
+  gap: 16px;
+  padding: 24px;
+}
+
+.ladder-card h2,
+.checklist-card h2,
+.actions-card h2 {
+  font-size: 16px;
+}
+
+.ladder {
+  display: flex;
+  gap: 16px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.step {
+  display: flex;
+  flex: 1 1 150px;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 12px;
+  border: 1.5px solid transparent;
+  border-radius: 20px;
+  background: var(--surface);
+  text-align: center;
+}
+
+.step--current {
+  background: var(--green);
+  border-color: var(--green);
+}
+
+.step__name {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink-soft);
+}
+
+.step__range {
+  font-size: 11px;
+  color: var(--ink-faint);
+}
+
+.step--current .step__name {
+  color: #000;
+}
+
+.step--current .step__range {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.step__state {
+  padding: 3px 8px;
+  border-radius: 9999px;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.step__state--unlocked {
+  background: var(--light-green);
+  color: var(--ink);
+}
+
+.step__state--current {
+  background: var(--green);
+  color: var(--antique-white);
+}
+
+.step__state--locked {
+  font-weight: 500;
+  color: var(--ink-faint);
+}
+
+/* ---------- Bottom row ---------- */
+
+.row--tier-bottom {
+  gap: 16px;
+  align-items: stretch;
+}
+
+.checklist-card {
+  flex: 0 0 304px;
+  gap: 16px;
+  padding: 24px;
+}
+
+.checklist,
+.actions,
+.recent__list {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.checklist {
+  gap: 8px;
+}
+
+.checklist li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.checklist img {
+  width: 20px;
+  height: 20px;
+  flex: 0 0 20px;
+}
+
+.checklist__label {
+  flex: 1;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.actions-card {
+  flex: 1;
+  min-width: 0;
+  gap: 16px;
+  padding: 24px;
+}
+
+.actions {
+  gap: 9px;
+}
+
+.actions li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 12px;
+  border-radius: 12px;
+  background: var(--light-green);
+}
+
+.actions__label {
+  flex: 1;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.pts-pill {
+  padding: 4px 10px;
+  border-radius: 9999px;
+  background: var(--green);
+  color: var(--antique-white);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.tier-side {
+  display: flex;
+  flex: 0 0 248px;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.estimate,
+.recent {
+  gap: 8px;
+  padding: 16px;
+}
+
+.estimate__title {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 19px;
+}
+
+.estimate__body {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.estimate__body img {
+  width: 40px;
+  height: 40px;
+}
+
+.estimate__date {
+  display: block;
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.recent__list {
+  gap: 4px;
+}
+
+.recent__list li {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.recent__label {
+  flex: 1;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.recent__date {
+  font-size: 11px;
+  color: var(--ink-faint);
+}
+
+@media (max-width: 1180px) {
+  .row--tier,
+  .row--tier-bottom {
+    flex-wrap: wrap;
+  }
+
+  .tier-now,
+  .tier-next,
+  .checklist-card,
+  .actions-card,
+  .tier-side {
+    flex: 1 1 320px;
+  }
+
+  .ladder {
+    flex-wrap: wrap;
+  }
+
+  .step {
+    flex: 1 1 160px;
+  }
+}

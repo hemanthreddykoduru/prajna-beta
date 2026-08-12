@@ -1,0 +1,481 @@
+/* Faculty Login – GITAM Hyderabad (Figma 1:287) */
+
+/* ponytail: the design is a fixed 1440×1024 frame — the gaps below flex with
+   viewport height instead so nothing is cut off on shorter screens. */
+.login {
+  display: flex;
+  height: 100dvh;
+  background: #fff;
+}
+
+/* ---------- Left / brand panel ---------- */
+
+.brand {
+  position: relative;
+  flex: 1 1 57%;
+  min-width: 0;
+  padding: clamp(20px, 3vw, 35px) clamp(20px, 3vw, 40px);
+  overflow: hidden;
+  color: #fdfefe;
+}
+
+.brand,
+.panel {
+  height: 100dvh;
+  overflow-y: auto;
+}
+
+.brand__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Crossfade slideshow: each slide is visible for one share of the cycle, and a
+   negative delay staggers them. Percentages assume ~3 slides; with many more,
+   the fade window gets long relative to the hold. */
+.brand__bg--cycling {
+  opacity: 0;
+  animation-name: slide-cycle;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes slide-cycle {
+  0% {
+    opacity: 1;
+  }
+  27% {
+    opacity: 1;
+  }
+  36% {
+    opacity: 0;
+  }
+  91% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brand__bg--cycling {
+    animation: none;
+  }
+  .brand__bg--cycling:not(:first-of-type) {
+    display: none;
+  }
+}
+
+/* ponytail: overlay approximated with a gradient; swap for the exported
+   composite if the designer's exact scrim matters */
+.brand::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg, rgba(4, 42, 36, 0.92) 0%, rgba(4, 42, 36, 0.45) 45%, rgba(1, 29, 25, 0.9) 100%);
+}
+
+.brand__content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: clamp(24px, 5vh, 105px);
+  min-height: 100%;
+}
+
+.brand__logo {
+  width: min(255px, 70%);
+  height: clamp(64px, 10vh, 100px);
+  object-fit: contain;
+}
+
+.brand__body {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(24px, 6vh, 110px);
+  width: min(430px, 100%);
+}
+
+.quote__mark {
+  width: 50px;
+  height: 42px;
+  margin-bottom: 10px;
+}
+
+.quote__text {
+  font-size: clamp(20px, 2.2vw, 28px);
+  font-weight: 600;
+  line-height: 1.55;
+  margin: 0 0 10px;
+}
+
+.quote__author {
+  font-size: 18px;
+  line-height: 26px;
+  opacity: 0.86;
+  margin: 0;
+}
+
+.brand__campus {
+  width: min(300px, 100%);
+  font-size: clamp(20px, 2vw, 26px);
+  font-weight: 700;
+  line-height: 1.9;
+  margin: 0;
+}
+
+/* captions stack on top of each other so they crossfade like the images */
+.brand__campus-name {
+  position: relative;
+  display: inline-grid;
+}
+
+.brand__campus-name > span {
+  grid-area: 1 / 1;
+  white-space: nowrap;
+}
+
+.features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15.5px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.feature {
+  display: flex;
+  gap: 10px;
+  width: min(241px, 100%);
+  flex: 1 1 200px;
+}
+
+.feature__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 56px;
+  width: 56px;
+  height: 56px;
+  border-radius: 28px;
+  background: rgba(2, 99, 91, 0.96);
+}
+
+.feature__icon img {
+  width: 28px;
+  height: 28px;
+}
+
+.feature__copy {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: auto;
+  flex: 1;
+  font-size: 15px;
+  color: #fff;
+}
+
+.feature__title {
+  font-weight: 600;
+  line-height: 20px;
+}
+
+.feature__desc {
+  line-height: 26px;
+  opacity: 0.82;
+}
+
+.brand__legal {
+  font-size: 15px;
+  line-height: 20px;
+  opacity: 0.78;
+  margin: 0;
+}
+
+/* ---------- Right / login panel ---------- */
+
+.panel {
+  position: relative;
+  flex: 1 1 43%;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: clamp(24px, 5vh, 80px);
+  padding: 40px clamp(20px, 4vw, 65px);
+  background: #f5f1e8;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  width: min(441px, 100%);
+}
+
+.form__header h1 {
+  font-size: clamp(28px, 3.4vw, 40px);
+  font-weight: 700;
+  line-height: 1.2;
+  color: #06201c;
+  margin: 0 0 8px;
+}
+
+.form__header p {
+  font-size: 16px;
+  line-height: 24px;
+  color: #68717d;
+  opacity: 0.62;
+  margin: 0 0 clamp(16px, 3vh, 36px);
+}
+
+.field + .field {
+  margin-top: 25px;
+}
+
+.field__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.field__label {
+  display: block;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  color: #0a0d0e;
+  margin-bottom: 9px;
+}
+
+.field__row .field__label {
+  margin-bottom: 0;
+}
+
+.field__row {
+  margin-bottom: 9px;
+}
+
+.field__link {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  color: #006b4b;
+  text-decoration: none;
+}
+
+.input {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  height: 58px;
+  padding: 0 16px;
+  background: #fff;
+  border: 1px solid #ccd0d5;
+  border-radius: 9px;
+}
+
+.input:focus-within {
+  border-color: #006b4b;
+}
+
+.input__icon {
+  width: 24px;
+  height: 24px;
+}
+
+.input input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  font: inherit;
+  font-size: 16px;
+  line-height: 24px;
+  color: #0a0d0e;
+}
+
+.input input::placeholder {
+  color: #6b7280;
+  opacity: 0.42;
+}
+
+.input__toggle {
+  display: flex;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+.input__toggle img {
+  width: 24px;
+  height: 24px;
+}
+
+.remember {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: clamp(14px, 2.5vh, 30px) 0 12px;
+  font-size: 16px;
+  line-height: 20px;
+  color: #0a0d0e;
+  opacity: 0.82;
+  cursor: pointer;
+}
+
+.remember input {
+  width: 18px;
+  height: 18px;
+  accent-color: #006b4b;
+  margin: 0;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  height: 58px;
+  border-radius: 9px;
+  border: 0;
+  font: inherit;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn--primary {
+  background: linear-gradient(90deg, #042a24 0%, #011d19 100%);
+  color: #fff;
+  font-family: Sora, Inter, sans-serif;
+}
+
+.btn--google {
+  height: 57px;
+  background: #fff;
+  border: 1px solid #ccd0d5;
+  color: #0a0d0e;
+}
+
+.btn--google img {
+  width: 24px;
+  height: 24px;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin: clamp(18px, 4vh, 51px) 0 clamp(14px, 2vh, 24px);
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: #ecedef;
+}
+
+.divider span {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  color: #68717d;
+  opacity: 0.48;
+}
+
+.help {
+  margin-top: clamp(20px, 5vh, 63px);
+}
+
+.help__title {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  color: #0a0d0e;
+  opacity: 0.88;
+  margin: 0 0 11px;
+}
+
+.help__line {
+  font-size: 15px;
+  line-height: 24px;
+  color: #68717d;
+  opacity: 0.55;
+  margin: 0;
+}
+
+.help__line a {
+  color: #006b4b;
+  font-weight: 600;
+  opacity: 1;
+  text-decoration: none;
+}
+
+.legal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  justify-content: space-between;
+  width: min(389px, 100%);
+  margin: 0 auto;
+  flex-shrink: 0;
+}
+
+.legal a {
+  font-size: 15px;
+  line-height: 24px;
+  color: #68717d;
+  text-decoration: none;
+}
+
+.legal span {
+  width: 1px;
+  height: 20px;
+  background: #9aa0a6;
+}
+
+/* ponytail: single breakpoint — stack instead of side-by-side.
+   Add finer breakpoints when a real mobile design exists. */
+@media (max-width: 900px) {
+  .login {
+    flex-direction: column;
+    height: auto;
+    min-height: 100dvh;
+  }
+
+  .brand,
+  .panel {
+    height: auto;
+    overflow: visible;
+  }
+
+  .brand,
+  .panel {
+    flex: 1 1 auto;
+    width: 100%;
+  }
+
+  .panel {
+    padding: 60px 24px 40px;
+    align-items: center;
+  }
+
+  .form,
+  .legal {
+    width: 100%;
+    max-width: 441px;
+  }
+}

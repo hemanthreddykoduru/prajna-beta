@@ -1,0 +1,248 @@
+/* Score History tab (Figma 3:9251) — builds on Dashboard.css + PrajnaScore.css */
+
+.stat-strip {
+  display: flex;
+  gap: 16px;
+}
+
+.stat-mini {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  flex-direction: column;
+  gap: 2px;
+  padding: 12px 16px;
+  border-radius: 12px;
+  background: var(--surface);
+  box-shadow: 0 1px 2px rgba(0, 71, 64, 0.04), 0 10px 28px rgba(0, 71, 64, 0.06);
+}
+
+.stat-mini__label {
+  font-size: 10.5px;
+  font-weight: 600;
+  color: var(--ink-faint);
+}
+
+.stat-mini__value {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.stat-mini__meta {
+  font-size: 10px;
+  color: var(--ink-faint);
+}
+
+/* ---------- Trend chart ---------- */
+
+.trend {
+  gap: 16px;
+  padding: 24px;
+}
+
+.trend h2 {
+  font-size: 16px;
+}
+
+.trend__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.plot {
+  display: flex;
+  gap: 8px;
+  height: 202px;
+}
+
+/* labels sit at their value's height — grids are not evenly spaced on All Time */
+.plot__axis {
+  position: relative;
+  width: 26px;
+  margin-bottom: 26px;
+  font-size: 10px;
+  color: var(--ink-faint);
+}
+
+.plot__axis span {
+  position: absolute;
+  right: 0;
+  transform: translateY(-50%);
+}
+
+.plot__area {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  margin-bottom: 26px;
+}
+
+.plot__area svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  overflow: visible;
+}
+
+.plot__grid {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--hairline);
+}
+
+.plot__dot {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  margin: -5px 0 0 -5px;
+  border-radius: 50%;
+  background: var(--green);
+}
+
+.plot__dot--current {
+  width: 14px;
+  height: 14px;
+  margin: -7px 0 0 -7px;
+  border: 3px solid var(--surface);
+  box-shadow: 0 0 0 2px var(--green);
+}
+
+.plot__value {
+  position: absolute;
+  transform: translate(-50%, -100%);
+  margin-top: -12px;
+  font-size: 10px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.plot__callout {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 6px;
+  background: var(--green);
+  color: var(--antique-white);
+}
+
+.plot__note {
+  position: absolute;
+  transform: translate(-50%, -100%);
+  margin-top: -34px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  background: var(--ink);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.plot__month {
+  position: absolute;
+  top: 100%;
+  transform: translateX(-50%);
+  margin-top: 10px;
+  font-size: 11px;
+  color: var(--ink-soft);
+}
+
+/* ---------- Timeline + at a glance ---------- */
+
+.row--history {
+  gap: 24px;
+  align-items: stretch;
+}
+
+.history-timeline {
+  flex: 0 0 636px;
+  gap: 16px;
+  padding: 24px;
+}
+
+.glance {
+  flex: 1;
+  min-width: 0;
+  gap: 16px;
+  padding: 24px;
+}
+
+.history-timeline h2,
+.glance h2 {
+  font-size: 16px;
+}
+
+.events {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.events li {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.events__text {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.events__title {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.events__date {
+  font-size: 11px;
+  color: var(--ink-faint);
+}
+
+.glance__list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.glance__list li {
+  display: flex;
+  flex-direction: column;
+  padding: 5px 12px;
+  border-radius: 8px;
+  background: var(--light-green);
+}
+
+.glance__label {
+  font-size: 10px;
+  color: var(--ink-soft);
+}
+
+.glance__value {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+@media (max-width: 1180px) {
+  .stat-strip,
+  .row--history {
+    flex-wrap: wrap;
+  }
+
+  .stat-mini,
+  .history-timeline,
+  .glance {
+    flex: 1 1 240px;
+  }
+}

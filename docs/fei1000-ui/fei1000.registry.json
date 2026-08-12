@@ -1,0 +1,4584 @@
+{
+  "$comment": "GENERATED from prajna-business-logic src/modules/score-engine/fei1000/registry.ts. Do not edit. Regenerate with `node scripts/generate-fei-ui-contract.mjs`.",
+  "framework": "FEI-1000",
+  "totalPoints": 1000,
+  "academicYearStartMonth": 7,
+  "tiers": [
+    {
+      "tier": "DISTINGUISHED_FELLOW",
+      "displayName": "Distinguished Fellow",
+      "minScore": 901,
+      "maxScoreExclusive": null,
+      "meaning": "Exceptional performer — top academic and research leader"
+    },
+    {
+      "tier": "PLATINUM",
+      "displayName": "Platinum",
+      "minScore": 801,
+      "maxScoreExclusive": 901,
+      "meaning": "High achiever — strong across teaching, research, and service"
+    },
+    {
+      "tier": "GOLD",
+      "displayName": "Gold",
+      "minScore": 701,
+      "maxScoreExclusive": 801,
+      "meaning": "Consistent contributor — meeting institutional and national benchmarks"
+    },
+    {
+      "tier": "SILVER",
+      "displayName": "Silver",
+      "minScore": 551,
+      "maxScoreExclusive": 701,
+      "meaning": "Developing contributor — solid base with room to grow"
+    },
+    {
+      "tier": "BRONZE",
+      "displayName": "Bronze",
+      "minScore": 400,
+      "maxScoreExclusive": 551,
+      "meaning": "Getting started — foundational activities in place"
+    },
+    {
+      "tier": "EMERGING_FACULTY",
+      "displayName": "Emerging Faculty",
+      "minScore": 0,
+      "maxScoreExclusive": 400,
+      "meaning": "New joiner — building the foundation"
+    }
+  ],
+  "clusters": [
+    {
+      "id": 1,
+      "name": "Teaching Excellence & Outcome-Based Education",
+      "maxPoints": 240,
+      "weightPercent": 24,
+      "frameworks": "UGC Cat-I · NAAC Cr-II · NBA Cr-2,3,4 · NIRF TLR 30% · ABET · QS FSR",
+      "parameterIds": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Student Success, Mentoring & Development",
+      "maxPoints": 150,
+      "weightPercent": 15,
+      "frameworks": "NAAC Cr-V · NBA Cr-4 · NIRF GO 20% · QS Employer · ABET Student Outcomes",
+      "parameterIds": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Research, Publications, Grants & Scholarly Impact",
+      "maxPoints": 200,
+      "weightPercent": 20,
+      "frameworks": "UGC Cat-III · NAAC Cr-III · NIRF RP 30% · QS Citations/Faculty · THE Research · Washington Accord",
+      "parameterIds": [
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Innovation, Intellectual Property & Entrepreneurship",
+      "maxPoints": 80,
+      "weightPercent": 8,
+      "frameworks": "NIRF IPR · NAAC III.4 · AICTE Innovation Mission · Startup India",
+      "parameterIds": [
+        28,
+        29,
+        30,
+        31,
+        32,
+        33
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Industry Engagement, Consultancy & Employability",
+      "maxPoints": 80,
+      "weightPercent": 8,
+      "frameworks": "NAAC III.5, III.6 · NBA Cr-7 · NIRF OI · QS Employer Reputation · AICTE Industry-Academia",
+      "parameterIds": [
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Institutional Governance, Quality Assurance & Compliance",
+      "maxPoints": 90,
+      "weightPercent": 9,
+      "frameworks": "UGC Cat-II · NAAC Cr-VI · NBA Cr-1,7 · AICTE PBAS · ISO · NIRF Data · NSS/NCC",
+      "parameterIds": [
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Professional Development, Upskilling & Digital Scholarly Identity",
+      "maxPoints": 70,
+      "weightPercent": 7,
+      "frameworks": "UGC Cat-II · NAAC II.4 · NBA Cr-5 · AICTE FDP Mandate · QS Academic Reputation",
+      "parameterIds": [
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Internationalisation & Global Academic Visibility",
+      "maxPoints": 60,
+      "weightPercent": 6,
+      "frameworks": "QS IRN 2024 · THE International Outlook · Washington Accord · NAAC III.7",
+      "parameterIds": [
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63
+      ]
+    },
+    {
+      "id": 9,
+      "name": "PRAJNA AI Companion Score & Profile Completeness",
+      "maxPoints": 30,
+      "weightPercent": 3,
+      "frameworks": "PRAJNA AI Companion · NAAC Cr-VI · AICTE Digital Mandate · QS Academic Profile",
+      "parameterIds": [
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70
+      ]
+    }
+  ],
+  "parameters": [
+    {
+      "id": 1,
+      "cluster": 1,
+      "seq": 1,
+      "name": "Syllabus completion rate",
+      "maxPoints": 35,
+      "verifier": "HOD",
+      "mode": "AUTO",
+      "accrual": "BEST",
+      "rubricText": "100%=35 · 90–99%=25 · 80–89%=15 · <80%=0",
+      "rungs": [
+        {
+          "points": 35,
+          "label": "100%",
+          "when": {
+            "kind": "gte",
+            "attr": "syllabusCompletionPercent",
+            "value": 100
+          }
+        },
+        {
+          "points": 25,
+          "label": "90–99%",
+          "when": {
+            "kind": "gte",
+            "attr": "syllabusCompletionPercent",
+            "value": 90
+          }
+        },
+        {
+          "points": 15,
+          "label": "80–89%",
+          "when": {
+            "kind": "gte",
+            "attr": "syllabusCompletionPercent",
+            "value": 80
+          }
+        },
+        {
+          "points": 0,
+          "label": "<80%",
+          "when": {
+            "kind": "always"
+          }
+        }
+      ],
+      "inputs": [
+        {
+          "key": "syllabusCompletionPercent",
+          "type": "percent",
+          "label": "Syllabus completion (%)",
+          "options": null,
+          "min": 0,
+          "max": 100,
+          "helpText": null
+        }
+      ],
+      "cap": null,
+      "quality": null,
+      "impact": null,
+      "pendingSource": "No LMS/academic-calendar feed publishes syllabus completion to BL yet (B-075).",
+      "exampleAttributes": {
+        "syllabusCompletionPercent": 95
+      }
+    },
+    {
+      "id": 2,
+      "cluster": 1,
+      "seq": 2,
+      "name": "Student feedback score",
+      "maxPoints": 45,
+      "verifier": "IQAC",
+      "mode": "AUTO",
+      "accrual": "BEST",
+      "rubricText": "≥4.5=45 · 4.0–4.4=36 · 3.5–3.9=22 · 3.0–3.4=10 · <3.0=0",
+      "rungs": [
+        {
+          "points": 45,
+          "label": "≥4.5",
+          "when": {
+            "kind": "gte",
+            "attr": "feedbackScore",
+            "value": 4.5
+          }
+        },
+        {
+          "points": 36,
+          "label": "4.0–4.4",
+          "when": {
+            "kind": "gte",
+            "attr": "feedbackScore",
+            "value": 4
+          }
+        },
+        {
+          "points": 22,
+          "label": "3.5–3.9",
+          "when": {
+            "kind": "gte",
+            "attr": "feedbackScore",
+            "value": 3.5
+          }
+        },
+        {
+          "points": 10,
+          "label": "3.0–3.4",
+          "when": {
+            "kind": "gte",
+            "attr": "feedbackScore",
+            "value": 3
+          }
+        },
+        {
+          "points": 0,
+          "label": "<3.0",
+          "when": {
+            "kind": "always"
+          }
+        }
+      ],
+      "inputs": [
+        {
+          "key": "feedbackScore",
+          "type": "number",
+          "label": "Student feedback score (out of 5)",
+          "options": null,
+          "min": 0,
+          "max": 5,
+          "helpText": null
+        }
+      ],
+      "cap": null,
+      "quality": null,
+      "impact": null,
+      "pendingSource": "IQAC feedback system does not publish to BL yet (B-075).",
+      "exampleAttributes": {
+        "feedbackScore": 3
+      }
+    },
+    {
+      "id": 3,
+      "cluster": 1,
+      "seq": 3,
+      "name": "Result performance",
+      "maxPoints": 25,
+      "verifier": "HOD",
+      "mode": "AUTO",
+      "accrual": "BEST",
+      "rubricText": "≥10% above avg=25 · at avg=18 · below=8",
+      "rungs": [
+        {
+          "points": 25,
+          "label": "≥10% above avg",
+          "when": {
+            "kind": "gte",
+            "attr": "resultVsDeptAvgPercent",
+            "value": 10
+          }
+        },
+        {
+          "points": 18,
+          "label": "at avg",
+          "when": {
+            "kind": "gte",
+            "attr": "resultVsDeptAvgPercent",
+            "value": 0
+          }
+        },
+        {
+          "points": 8,
+          "label": "below avg",
+          "when": {
+            "kind": "always"
+          }
+        }
+      ],
+      "inputs": [
+        {
+          "key": "resultVsDeptAvgPercent",
+          "type": "number",
+          "label": "Pass % relative to department average (percentage points)",
+          "options": null,
+          "min": null,
+          "max": null,
+          "helpText": "Positive = above department average. e.g. 12 means 12 points above avg."
+        }
+      ],
+      "cap": null,
+      "quality": null,
+      "impact": null,
+      "pendingSource": "Requires COE result data keyed by faculty-taught course (B-075).",
+      "exampleAttributes": {
+        "resultVsDeptAvgPercent": 3
+      }
+    },
+    {
+      "id": 4,
+      "cluster": 1,
+      "seq": 4,
+      "name": "CO attainment (course outcome)",
+      "maxPoints": 25,
+      "verifier": "NBA_COORD",
+      "mode": "UPLOAD",
+      "accrual": "BEST",
+      "rubricText": "All COs ≥60%=25 · partial=12 · nil=0",
+      "rungs": [
+        {
+          "points": 25,
+          "label": "All COs ≥60%",
+          "when": {
+            "kind": "eq",
+            "attr": "coAttainmentLevel",
+            "value": "ALL"
+          }
+        },
+        {
+          "points": 12,
+          "label": "partial",
+          "when": {
+            "kind": "eq",
+            "attr": "coAttainmentLevel",
+            "value": "PARTIAL"
+          }
+        },
+        {
+          "points": 0,
+          "label": "nil",
+          "when": {
+            "kind": "always"
+          }
+        }
+      ],
+      "inputs": [
+        {
+          "key": "coAttainmentLevel",
+          "type": "enum",
+          "label": "CO attainment level",
+          "options": [
+            {
+              "value": "ALL",
+              "label": "All COs ≥60%"
+            },
+            {
+              "value": "PARTIAL",
+              "label": "Partial"
+            },
+            {
+              "value": "NIL",
+              "label": "Nil"
+            }
+          ],
+          "min": null,
+          "max": null,
+          "helpText": null
+        }
+      ],
+      "cap": null,
+      "quality": null,
+      "impact": null,
+      "pendingSource": null,
+      "exampleAttributes": {
+        "coAttainmentLevel": "ALL"
+      }
+    },
+    {
+      "id": 5,
+      "cluster": 1,
+      "seq": 5,
+      "name": "PO mapping completeness",
+      "maxPoints": 20,
+      "verifier": "NBA_COORD",
+      "mode": "UPLOAD",
+      "accrual": "BEST",
+      "rubricText": "100% mapped=20 · partial=10 · nil=0",
+      "rungs": [
+        {
+          "points": 20,
+          "label": "100% mapped",
+          "when": {
+            "kind": "eq",
+            "attr": "poMappingLevel",
+            "value": "FULL"
+          }
+        },
+        {
+          "points": 10,
+          "label": "partial",
+          "when": {
+            "kind": "eq",
+            "attr": "poMappingLevel",
+            "value": "PARTIAL"
+          }
+        },
+        {
+          "points": 0,
+          "label": "nil",
+          "when": {
+            "kind": "always"
+          }
+        }
+      ],
+      "inputs": [
+        {
+          "key": "poMappingLevel",
+          "type": "enum",
+          "label": "PO mapping completeness",
+          "options": [
+            {
+              "value": "FULL",
+              "label": "100% mapped"
+            },
+            {
+              "value": "PARTIAL",
+              "label": "Partial"
+            },
+            {
+              "value": "NIL",
+              "label": "Nil"
+            }
+          ],
+          "min": null,
+          "max": null,
+          "helpText": null
+        }
+      ],
+      "cap": null,
+      "quality": null,
+      "impact": null,
+      "pendingSource": null,
+      "exampleAttributes": {
+        "poMappingLevel": "FULL"
+      }
+    },
+    {
+      "id": 6,
+      "cluster": 1,
+      "seq": 6,
+      "name": "Innovative teaching methods",
+      "maxPoints": 20,
+      "verifier": "HOD",
+      "mode": "UPLOAD",
+      "accrual": "BEST",
+      "rubricText": "2+ documented=20 · 1=10 · 0=0",
+      "rungs": [
+        {
+          "points": 20,
+          "label": "2+ documented",
+          "when": {
+            "kind": "gte",
+            "attr": "methodsDocumented",
+            "value": 2
+          }
+        },
+        {
+          "points": 10,
+          "label": "1 documented",
+          "when": {
+            "kind": "gte",
+            "attr": "methodsDocumented",
+            "value": 1
+          }
+        },
+        {
+          "points": 0,
+          "label": "none",
+          "when": {
+            "kind": "always"
+          }
+        }
+      ],
+      "inputs": [
+        {
+          "key": "methodsDocumented",
+          "type": "number",
+          "label": "Documented innovative methods",
+          "options": null,
+          "min": 0,
+          "max": null,
+          "helpText": null
+        }
+      ],
+      "cap": null,
+      "quality": null,
+      "impact": null,
+      "pendingSource": null,
+      "exampleAttributes": {
+        "methodsDocumented": 3
+      }
+    },
+    {
+      "id": 7,
+      "cluster": 1,
+      "seq": 7,
+      "name": "LMS usage & digital content",
+      "maxPoints": 20,
+      "verifier": "SYSTEM",
+      "mode": "AUTO",
+      "accrual": "BEST",
+      "rubricText": "Active weekly=20 · monthly=10 · none=0",
+      "rungs": [
+        {
+          "points": 20,
+          "label": "Active weekly",
+          "when": {
+            "kind": "eq",
+            "attr": "lmsActivity",
+            "value": "WEEKLY"
+          }
+        },
+        {
+          "points": 10,
+          "label": "Monthly",
+          "when": {
+            "kind": "eq",
+            "attr": "lmsActivity",
+            "value": "MONTHLY"
+          }
+        },
+        {
+          "points": 0,
+          "label": "None",
+          "when": {
+            "kind": "always"
+          }
+        }
+      ],
+      "inputs": [
+        {
+          "key": "lmsActivity",
+          "type": "enum",
+          "label": "LMS activity cadence",
+          "options": [
+            {
+              "value": "WEEKLY",
+              "label": "Active weekly"
+            },
+            {
+              "value": "MONTHLY",
+              "label": "Monthly"
+            },
+            {
+              "value": "NONE",
+              "label": "None"
+            }
+          ],
+          "min": null,
+          "max": null,
+          "helpText": null
+        }
+      ],
+      "cap": null,
+      "quality": null,
+      "impact": null,
+      "pendingSource": "No LMS integration exists in the PRAJNA platform (B-075).",
+      "exampleAttributes": {
+        "lmsActivity": "WEEKLY"
+      }
+    },
+    {
+      "id": 8,
+      "cluster": 1,
+      "seq": 8,
+      "name": "Course file & lesson plan quality",
+      "maxPoints": 25,
+      "verifier": "IQAC",
+      "mode": "UPLOAD",
+      "accrual": "BEST",
+      "rubricText": "On time & complete=25 · late=12 · absent=0",
+      "rungs": [
+        {
+          "points": 25,
+          "label": "On time & complete",
+          "when": {
+            "kind": "eq",
+            "attr": "courseFileStatus",
+            "value": "ON_TIME"
+          }
+        },
+        {
+          "points": 12,
+          "label": "Late",
+          "when": {
+            "kind": "eq",
+            "attr": "courseFileStatus",
+            "value": "LATE"
+          }
+        },
+        {
+          "points": 0,
+          "label": "Absent",
+          "when": {
+            "kind": "always"
+          }
+        }
+      ],
+      "inputs": [
+        {
+          "key": "courseFileStatus",
+          "type": "enum",
+          "label": "Course file status",
+          "options": [
+            {
+              "value": "ON_TIME",
+              "label": "On time & complete"
+            },
+            {
+              "value": "LATE",
+              "label": "Late"
+            },
+            {
+              "value": "ABSENT",
+              "label": "Absent"
+            }
+          ],
+          "min": null,
+          "max": null,
+          "helpText": null
+        }
+      ],
+      "cap": null,
+      "quality": null,
+      "impact": null,
+      "pendingSource": null,
+      "exampleAttributes": {
+        "courseFileStatus": "ON_TIME"
+      }
+    },
+    {
+      "id": 9,
+      "cluster": 1,
+      "seq": 9,
+      "name": "Continuous assessment quality",
+      "maxPoints": 25,
+      "verifier": "HOD",
+      "mode": "AUTO",
+      "accrual": "BEST",
+      "rubricText": "All timely=25 · partial=12 · nil=0",
+      "rungs": [
+        {
+          "points": 25,
+          "label": "All timely",
+          "when": {
+            "kind": "eq",
+            "attr": "assessmentTimeliness",
+            "value": "ALL"
+          }
+        },
+        {
+          "points": 12,
+          "label": "Partial",
+          "when": {
+            "kind": "eq",
+            "attr": "assessmentTimeliness",
+            "value": "PARTIAL"
+          }
+        },
+        {
+          "points": 0,
+          "label": "Nil",
+          "when": {
+            "kind": "always"
+          }
+        }
+      ],
+      "inputs": [
+        {
+          "key": "assessmentTimeliness",
+          "type": "enum",
+          "label": "Continuous assessment timeliness",
+          "options": [
+            {
+              "value": "ALL",
+              "label": "All timely"
+            },
+            {
+              "value": "PARTIAL",
+              "label": "Partial"
+            },
+            {
+              "value": "NIL",
+              "label": "Nil"
+            }
+          ],
+          "min": null,
+          "max": null,
+          "helpText": null
+        }
+      ],
+      "cap": null,
+      "quality": null,
+      "impact": null,
+      "pendingSource": "Requires an examination/assessment schedule feed (B-075).",
+      "exampleAttributes": {
+        "assessmentTimeliness": "ALL"
+      }
+    },
+    {
+      "id": 10,
+      "cluster": 2,
+      "seq": 1,
+      "name": "Mentoring sessions logged",
+      "maxPoints": 15,
+      "verifier": "HOD",
+      "mode": "AUTO",
+      "accrual": "BEST",
+      "rubricText": "≥8 sessions/yr=15 · 4–7=8 · <4=0",
+      "rungs": [
+        {
+          "points": 15,
+          "label": "≥8 sessions/yr",
+          "when": {
+            "kind": "gte",
+            "attr": "sessionCount",
+            "value": 8
+          }
+        },
+        {
+          "points": 8,
+          "label": "4–7",
+          "when": {
+            "kind": "gte",
+            "attr": "sessionCount",
+            "value": 4
+          }
+        },
+        {
+          "points": 0,
+          "label": "<4",
+          "when": {
+            "kind": "always"
+          }
+        }
+      ],
+      "inputs": [
+        {
+          "key": "sessionCount",
+          "type": "number",
+          "label": "Mentoring sessions logged this year",
+          "options": null,
+          "min": 0,
+          "max": null,
+          "helpText": null
+        }
+      ],
+      "cap": null,
+      "quality": null,
+      "impact": null,
+      "pendingSource": null,
+      "exampleAttributes": {
+        "sessionCount": 3
+      }
+    },
+    {
+      "id": 11,
+      "cluster": 2,
+      "seq": 2,
+      "name": "Student project guidance (UG/PG)",
+      "maxPoints": 15,
+      "verifier": "HOD",
+      "mode": "UPLOAD",
+      "accrual": "BEST",
+      "rubricText": "≥5=15 · 3–4=10 · 1–2=5 · max 10/yr",
+      "rungs": [
+        {
+          "points": 15,
+          "label": "≥5 projects",
+          "when": {
+            "kind": "gte",
+            "attr": "projectCount",
+            "value": 5
+          }
+        },
+        {
+          "points": 10,
+          "label": "3–4",
+          "when": {
+            "kind": "gte",
+            "attr": "projectCount",
+            "value": 3
+          }
+        },
+        {
+          "points": 5,
+          "label": "1–2",
+          "when": {
+            "kind": "gte",
+            "attr": "projectCount",
+            "value": 1
+          }
+        },
+        {
+          "points": 0,
+          "label": "none",
+          "when": {
+            "kind": "always"
+          }
+        }
+      ],
+      "inputs": [
+        {
+          "key": "projectCount",
+          "type": "number",
+          "label": "Projects guided this year",
+          "options": null,
+          "min": 0,
+          "max": null,
+          "helpText": null
+        }
+      ],
+      "cap": {
+        "text": "max 10/yr"
+      },
+      "quality": null,
+      "impact": null,
+      "pendingSource": null,
+      "exampleAttributes": {
+        "projectCount": 3
+      }
+    },
+    {
+      "id": 12,
+      "cluster": 2,
+      "seq": 3,
+      "name": "Remedial & advanced learner support",
+      "maxPoints": 15,
+      "verifier": "HOD",
+      "mode": "UPLOAD",
+      "accrual": "BEST",
+      "rubricText": "Both tracked with outcome=15 · one=8 · nil=0",
+      "rungs": [
+        {
+          "points": 15,
+          "label": "Both tracked with outcome",
+          "when": {
+            "kind": "eq",
+            "attr": "supportCoverage",
+            "value": "BOTH"
+          }
+        },
+        {
+          "points": 8,
+          "label": "One",
+          "when": {
+            "kind": "eq",
+            "attr": "supportCoverage",
+            "value": "ONE"
+          }
+        },
+        {
+          "points": 0,
+          "label": "Nil",
+          "when": {
+            "kind": "always"
+          }
+        }
+      ],
+      "inputs": [
+        {
+          "key": "supportCoverage",
+          "type": "enum",
+          "label": "Learner support coverage",
+          "options": [
+            {
+              "value": "BOTH",
+              "label": "Both remedial & advanced, with outcomes"
+            },
+            {
+              "value": "ONE",
+              "label": "One of the two"
+            },
+            {
+              "value": "NIL",
+              "label": "Nil"
+            }
+          ],
+          "min": null,
+          "max": null,
+          "helpText": null
+        }
+      ],
+      "cap": null,
+      "quality": null,
+      "impact": null,
+      "pendingSource": null,
+      "exampleAttributes": {
+        "supportCoverage": "BOTH"
+      }
+    },
+    {
+      "id": 13,
+      "cluster": 2,
+      "seq": 4,
+      "name": "Student placement support",
+      "maxPoints": 20,
+      "verifier": "PLACEMENT",
+      "mode": "AUTO",
+      "accrual": "BEST",
+      "rubricText": "≥5 placed=20 · 3–4=12 · 1–2=6",
+      "rungs": [
+        {
+          "points": 20,
+          "label": "≥5 placed",
+          "when": {
+            "kind": "gte",
+            "attr": "placedCount",
+            "value": 5
+          }
+        },
+        {
+          "points": 12,
+          "label": "3–4",
+          "when": {
+            "kind": "gte",
+            "attr": "placedCount",
+            "value": 3
+          }
+        },
+        {
+          "points": 6,
+          "label": "1–2",
+          "when": {
+            "kind": "gte",
+            "attr": "placedCount",
+            "value": 1
+          }
+        },
+        {
+          "points": 0,
+          "label": "none",
+          "when": {
+            "kind": "always"
+          }
+        }
+      ],
+      "inputs": [
+        {
+          "key": "placedCount",
+          "type": "number",
+          "label": "Students placed with your support",
+          "options": null,
+          "min": 0,
+          "max": null,
+          "helpText": null
+        }
+      ],
+      "cap": null,
+      "quality": null,
+      "impact": null,
+      "pendingSource": "Placement cell system does not publish per-faculty attribution to BL (B-075).",
+      "exampleAttributes": {
+        "placedCount": 3
+      }
+    },
+    {
+      "id": 14,
+      "cluster": 2,
+      "seq": 5,
+      "name": "Higher education / abroad guidance",
+      "maxPoints": 15,
+      "verifier": "PLACEMENT",
+      "mode": "UPLOAD",
+      "accrual": "BEST",
+      "rubricText": "≥3 students=15 · 1–2=8",
+      "rungs": [
+        {
+          "points": 15,
+          "label": "≥3 students",
+          "when": {
+            "kind": "gte",
+            "attr": "studentCount",
+            "value": 3
+          }
+        },
+        {
+          "points": 8,
+          "label": "1–2",
+          "when": {
+            "kind": "gte",
+            "attr": "studentCount",
+            "value": 1
+          }
+        },
+        {
+          "points": 0,
+          "label": "none",
+          "when": {
+            "kind": "always"
+          }
+        }
+      ],
+      "inputs": [
+        {
+          "key": "studentCount",
+          "type": "number",
+          "label": "Students guided to higher education",
+          "options": null,
+          "min": 0,
+          "max": null,
+          "helpText": null
+        }
+      ],
+      "cap": null,
+      "quality": null,
+      "impact": null,
+      "pendingSource": null,
+      "exampleAttributes": {
+        "studentCount": 3
+      }
+    },
+    {
+      "id": 15,
+      "cluster": 2,
+      "seq": 6,
+      "name": "Competitive exam guidance (GATE/GRE)",
+      "maxPoints": 12,
+      "verifier": "HOD",
+      "mode": "UPLOAD",
+      "accrual": "BEST",
+      "rubricText": "≥3 qualified=12 · 1–2=6",
+      "rungs": [
+        {
+          "points": 12,
+          "label": "≥3 qualified",
+          "when": {
+            "kind": "gte",
+            "attr": "qualifiedCount",
+            "value": 3
+          }
+        },
+        {
+          "points": 6,
+          "label": "1–2",
+          "when": {
+            "kind": "gte",
+            "attr": "qualifiedCount",
+            "value": 1
+          }
+        },
+        {
+          "points": 0,
+          "label": "none",
+          "when": {
+            "kind": "always"
+          }
+        }
+      ],
+      "inputs": [
+        {
+          "key": "qualifiedCount",
+          "type": "number",
+          "label": "Students who qualified",
+          "options": null,
+          "min": 0,
+          "max": null,
+          "helpText": null
+        }
+      ],
+      "cap": null,
+      "quality": null,
+      "impact": null,
+      "pendingSource": null,
+      "exampleAttributes": {
+        "qualifiedCount": 3
+      }
+    },
+    {
+      "id": 16,
+      "cluster": 2,
+      "seq": 7,
+      "name": "Student publications / patents guided",
+      "maxPoints": 10,
+      "verifier": "RDC",
+      "mode": "UPLOAD",
+      "accrual": "SUM",
+      "rubricText": "10 pts each · max 3/yr",
+      "rungs": [
+        {
+          "points": 10,
+          "label": "each",
+          "when": {
+            "kind": "always"
+          }
+        }
+      ],
+      "inputs": [],
+      "cap": {
+        "maxInstances": 3,
+        "text": "max 3/yr"
+      },
+      "quality": null,
+      "impact": null,
+      "pendingSource": null,
+      "exampleAttributes": {}
+    },
+    {
+      "id": 17,
+      "cluster": 2,
+      "seq": 8,
+      "name": "Student startup mentored",
+      "maxPoints": 10,
+      "verifier": "DEAN",
+      "mode": "UPLOAD",
+      "accrual": "BEST",
+      "rubricText": "Funded startup=10 · Registered=6 · Ideation=3",
+      "rungs": [
+        {
+          "points": 10,
+          "label": "Funded startup",
+          "when": {
+            "kind": "eq",
+            "attr": "startupStage",
+            "value": "FUNDED"
+          }
+        },
+        {
+          "points": 6,
+          "label": "Registered",
+          "when": {
+            "kind": "eq",
+            "attr": "startupStage",
+            "value": "REGISTERED"
+          }
+        },
+        {
+          "points": 3,
+          "label": "Ideation",
+          "when": {
+            "kind": "eq",
+            "attr": "startupStage",
+            "value": "IDEATION"
+          }
+        },
+        {
+          "points": 0,
+          "label": "none",
+          "when": {
+            "kind": "always"
+          }
+        }
+      ],
+      "inputs": [
+        {
+          "key": "startupStage",
+          "type": "enum",
+          "label": "Startup stage",
+          "options": [
+            {
+              "value": "FUNDED",
+              "label": "Funded"
+            },
+            {
+              "value": "REGISTERED",
+              "label": "Registered"
+            },
+            {
+              "value": "IDEATION",
+              "label": "Ideation"
+            }
+          ],
+          "min": null,
+          "max": null,
+          "helpText": null
+        }
+      ],
+      "cap": null,
+      "quality": null,
+      "impact": null,
+      "pendingSource": null,
+      "exampleAttributes": {
+        "startupStage": "FUNDED"
+      }
+    },
+    {
+      "id": 18,
+      "cluster": 2,
+      "seq": 9,
+      "name": "Ph.D. supervision (all stages)",
+      "maxPoints": 25,
+      "verifier": "DOAA",
+      "mode": "UPLOAD",
+      "accrual": "BEST",
+      "rubricText": "Awarded=25 · Submitted=15 · Registered=8 · M.Tech guided=5",
+      "rungs": [
+        {
+          "points": 25,
+          "label": "Awarded",
+          "when": {
+            "kind": "eq",
+            "attr": "supervisionStage",
+            "value": "AWARDED"
+          }
+        },
+        {
+          "points": 15,
+          "label": "Submitted",
+          "when": {
+            "kind": "eq",
+            "attr": "supervisionStage",
+            "value": "SUBMITTED"
+          }
+        },
+        {
+          "points": 8,
+          "label": "Registered",
+          "when": {
+            "kind": "eq",
+            "attr": "supervisionStage",
+            "value": "REGISTERED"
+          }
+        },
+        {
+          "points": 5,
+          "label": "M.Tech guided",
+          "when": {
+            "kind": "eq",
+            "attr": "supervisionStage",
+            "value": "MTECH"
+          }
+        },
+        {
+          "points": 0,
+          "label": "none",
+          "when": {
+            "kind": "always"
+          }
+        }
+      ],
+      "inputs": [
+        {
+          "key": "supervisionStage",
+          "type": "enum",
+          "label": "Highest supervision stage reached",
+          "options": [
+            {
+              "value": "AWARDED",
+              "label": "Ph.D. awarded"
+            },
+            {
+              "value": "SUBMITTED",
+              "label": "Thesis submitted"
+            },
+            {
+              "value": "REGISTERED",
+              "label": "Scholar registered"
+            },
+            {
+              "value": "MTECH",
+              "label": "M.Tech guided"
+            }
+          ],
+          "min": null,
+          "max": null,
+          "helpText": null
+        }
+      ],
+      "cap": null,
+      "quality": null,
+      "impact": null,
+      "pendingSource": null,
+      "exampleAttributes": {
+        "supervisionStage": "AWARDED"
+      }
+    },
+    {
+      "id": 19,
+      "cluster": 3,
+      "seq": 1,
+      "name": "Scopus-indexed journal paper",
+      "maxPoints": 20,
+      "verifier": "SYSTEM",
+      "mode": "AUTO",
+      "accrual": "SUM",
+      "rubricText": "20 pts each · max 5/yr · quality multiplier applies",
+      "rungs": [
+        {
+          "points": 20,
+          "label": "each",
+          "when": {
+            "kind": "always"
+          }
+        }
+      ],
+      "inputs": [
+        {
+          "key": "citations",
+          "type": "number",
+          "label": "Citations to date",
+          "options": null,
+          "min": 0,
+          "max": null,
+          "helpText": "Drives the impact multiplier."
+        }
+      ],
+      "cap": {
+        "maxInstances": 5,
+        "text": "max 5/yr"
+      },
+      "quality": null,
+      "impact": {
+        "attr": "citations",
+        "rungs": [
+          {
+            "gte": 25,
+            "factor": 1.2
+          }
+        ],
+        "source": "Master formula Example 1: \"Q1 SCI paper, 1st author, 25+ citations → 30 × 1.5 × 1.2 = 54 pts\""
+      },
+      "pendingSource": null,
+      "exampleAttributes": {
+        "citations": 3
+      }
+    },
+    {
+      "id": 20,
+      "cluster": 3,
+      "seq": 2,
+      "name": "SCI / SCIE / WoS journal paper",
+      "maxPoints": 30,
+      "verifier": "RDC",
+      "mode": "UPLOAD",
+      "accrual": "SUM",
+      "rubricText": "Q1=30 · Q2=22 · Q3=15 · Q4=8 · max 5/yr · 1st author ×1.5",
+      "rungs": [
+        {
+          "points": 30,
+          "label": "Q1",
+          "when": {
+            "kind": "eq",
+            "attr": "quartile",
+            "value": "Q1"
+          }
+        },
+        {
+          "points": 22,
+          "label": "Q2",
+          "when": {
+            "kind": "eq",
+            "attr": "quartile",
+            "value": "Q2"
+          }
+        },
+        {
+          "points": 15,
+          "label": "Q3",
+          "when": {
+            "kind": "eq",
+            "attr": "quartile",
+            "value": "Q3"
+          }
+        },
+        {
+          "points": 8,
+          "label": "Q4",
+          "when": {
+            "kind": "eq",
+            "attr": "quartile",
+            "value": "Q4"
+          }
+        },
+        {
+          "points": 0,
+          "label": "unranked",
+          "when": {
+            "kind": "always"
+          }
+        }
+      ],
+      "inputs": [
+        {
+          "key": "quartile",
+          "type": "enum",
+          "label": "Journal quartile",
+          "options": [
+            {
+              "value": "Q1",
+              "label": "Q1"
+            },
+            {
+              "value": "Q2",
+              "label": "Q2"
+            },
+            {
+              "value": "Q3",
+              "label": "Q3"
+            },
+            {
+              "value": "Q4",
+              "label": "Q4"
+            }
+          ],
+          "min": null,
+          "max": null,
+          "helpText": null
+        },
+        {
+          "key": "authorPosition",
+          "type": "enum",
+          "label": "Your author position",
+          "options": [
+            {
+              "value": "FIRST",
+              "label": "First author"
+            },
+            {
+              "value": "CORRESPONDING",
+              "label": "Corresponding author"
+            },
+            {
+              "value": "CO",
+              "label": "Co-author"
+            }
+          ],
+          "min": null,
+          "max": null,
+          "helpText": null
+        },
+        {
+          "key": "citations",
+          "type": "number",
+          "label": "Citations to date",
+          "options": null,
+          "min": 0,
+          "max": null,
+          "helpText": null
+        }
+      ],
+      "cap": {
+        "maxInstances": 5,
+        "text": "max 5/yr"
+      },
+      "quality": {
+        "attr": "authorPosition",
+        "factors": {
+          "FIRST": 1.5
+        },
+        "source": "Rubric cell: \"1st author ×1.5\""
+      },
+      "impact": {
+        "attr": "citations",
+        "rungs": [
+          {
+            "gte": 25,
+            "factor": 1.2
+          }
+        ],
+        "source": "Master formula Example 1: \"Q1 SCI paper, 1st author, 25+ citations → 30 × 1.5 × 1.2 = 54 pts\""
+      },
+      "pendingSource": null,
+      "exampleAttributes": {
+        "quartile": "Q1",
+        "authorPosition": "FIRST",
+        "citations": 3
+      }
+    },
+    {
+      "id": 21,
+      "cluster": 3,
+      "seq": 3,
+      "name": "Book / book chapter (Scopus publisher)",
+      "maxPoints": 15,
+      "verifier": "RDC",
+      "mode": "UPLOAD",
+      "accrual": "SUM",
+      "rubricText": "Book=15 · Chapter=8 · max 2/yr",
+      "rungs": [
+        {
+          "points": 15,
+          "label": "Book",
+          "when": {
+            "kind": "eq",
+            "attr": "publicationType",
+            "value": "BOOK"
+          }
+        },
+        {
+          "points": 8,
+          "label": "Chapter",
+          "when": {
+            "kind": "eq",
+            "attr": "publicationType",
+            "value": "CHAPTER"
+          }
+        },
+        {
+          "points": 0,
+          "label": "other",
+          "when": {
+            "kind": "always"
+          }
+        }
+      ],
+      "inputs": [
+        {
+          "key": "publicationType",
+          "type": "enum",
+          "label": "Publication type",
+          "options": [
+            {
+              "value": "BOOK",
+              "label": "Full book"
+            },
+            {
+              "value": "CHAPTER",
+              "label": "Book chapter"
+            }
+          ],
+          "min": null,
+          "max": null,
+          "helpText": null
+        }
+      ],
+      "cap": {
+        "maxInstances": 2,
+        "text": "max 2/yr"
+      },
+      "quality": null,
+      "impact": null,
+      "pendingSource": null,
+      "exampleAttributes": {
+        "publicationType": "BOOK"
+      }
+    },
+    {
+      "id": 22,
+      "cluster": 3,
+      "seq": 4,
+      "name": "Conference paper (indexed proceedings)",
+      "maxPoints": 8,
+      "verifier": "RDC",
+      "mode": "UPLOAD",
+      "accrual": "SUM",
+      "rubricText": "International=8 · National=4 · max 4/yr",
+      "rungs": [
+        {
+          "points": 8,
+          "label": "International",
+          "when": {
+            "kind": "eq",
+            "attr": "scope",
+            "value": "INTERNATIONAL"
+          }
+        },
+        {
+          "points": 4,
+          "label": "National",
+          "when": {
+            "kind": "eq",
+            "attr": "scope",
+            "value": "NATIONAL"
+          }
+        },
+        {
+          "points": 0,
+          "label": "other",
+          "when": {
+            "kind": "always"
+          }
+        }
+      ],
+      "inputs": [
+        {
+          "key": "scope",
+          "type": "enum",
+          "label": "Conference scope",
+          "options": [
+            {
+              "value": "INTERNATIONAL",
+              "label": "International"
+            },
+            {
+              "value": "NATIONAL",
+              "label": "National"
+            }
+          ],
+          "min": null,
+          "max": null,
+          "helpText": null
+        }
+      ],
+      "cap": {
+        "maxInstances": 4,
+        "text": "max 4/yr"
+      },
+      "quality": null,
+      "impact": null,
+      "pendingSource": null,
+      "exampleAttributes": {
+        "scope": "INTERNATIONAL"
+      }
+    },
+    {
+      "id": 23,
+      "cluster": 3,
+      "seq": 5,
+      "name": "H-Index (Scopus / Google Scholar)",
+      "maxPoints": 30,
+      "verifier": "SYSTEM",
+      "mode": "AUTO",
+      "accrual": "BEST",
+      "rubricText": "H≥15=30 · H10–14=24 · H7–9=18 · H4–6=10 · H1–3=4",
+      "rungs": [
+        {
+          "points": 30,
+          "label": "H≥15",
+          "when": {
+            "kind": "gte",
+            "attr": "hIndex",
+            "value": 15
+          }
+        },
+        {
+          "points": 24,
+          "label": "H10–14",
+          "when": {
+            "kind": "gte",
+            "attr": "hIndex",
+            "value": 10
+          }
+        },
+        {
+          "points": 18,
+          "label": "H7–9",
+          "when": {
+            "kind": "gte",
+            "attr": "hIndex",
+            "value": 7
+          }
+        },
+        {
+          "points": 10,
+          "label": "H4–6",
+          "when": {
+            "kind": "gte",
+            "attr": "hIndex",
+            "value": 4
+          }
+        },
+        {
+          "points": 4,
+          "label": "H1–3",
+          "when": {
+            "kind": "gte",
+            "attr": "hIndex",
+            "value": 1
+          }
+        },
+        {
+          "points": 0,
+          "label": "H0",
+          "when": {
+            "kind": "always"
+          }
+        }
+      ],
+      "inputs": [
+        {
+          "key": "hIndex",
+          "type": "number",
+          "label": "H-Index",
+          "options": null,
+          "min": 0,
+          "max": null,
+          "helpText": null
+        }
+      ],
+      "cap": null,
+      "quality": null,
+      "impact": null,
+      "pendingSource": "No Scopus/Scholar API integration exists yet (B-075).",
+      "exampleAttributes": {
+        "hIndex": 3
+      }
+    },
+    {
+      "id": 24,
+      "cluster": 3,
+      "seq": 6,
+      "name": "Annual citation increment",
+      "maxPoints": 20,
+      "verifier": "SYSTEM",
+      "mode": "AUTO",
+      "accrual": "BEST",
+      "rubricText": "≥100 new=20 · 50–99=15 · 20–49=10 · 5–19=5",
+      "rungs": [
+        {
+          "points": 20,
+          "label": "≥100 new",
+          "when": {
+            "kind": "gte",
+            "attr": "newCitations",
+            "value": 100
+          }
+        },
+        {
+          "points": 15,
+          "label": "50–99",
+          "when": {
+            "kind": "gte",
+            "attr": "newCitations",
+            "value": 50
+          }
+        },
+        {
+          "points": 10,
+          "label": "20–49",
+          "when": {
+            "kind": "gte",
+            "attr": "newCitations",
+            "value": 20
+          }
+        },
+        {
+          "points": 5,
+          "label": "5–19",
+          "when": {
+            "kind": "gte",
+            "attr": "newCitations",
+            "value": 5
+          }
+        },
+        {
+          "points": 0,
+          "label": "<5",
+          "when": {
+            "kind": "always"
+          }
+        }
+      ],
+      "inputs": [
+        {
+          "key": "newCitations",
+          "type": "number",
+          "label": "New citations this year",
+          "options": null,
+          "min": 0,
+          "max": null,
+          "helpText": null
+        }
+      ],
+      "cap": null,
+      "quality": null,
+      "impact": null,
+      "pendingSource": "No Scopus/Scholar API integration exists yet (B-075).",
+      "exampleAttributes": {
+        "newCitations": 3
+      }
+    },
+    {
+      "id": 25,
+      "cluster": 3,
+      "seq": 7,
+      "name": "Research seminar organised/presented",
+      "maxPoints": 7,
+      "verifier": "HOD",
+      "mode": "UPLOAD",
+      "accrual": "SUM",
+      "rubricText": "Organised=7 · Presented at=4 · max 3/yr",
+      "rungs": [
+        {
+          "points": 7,
+          "label": "Organised",
+          "when": {
+            "kind": "eq",
+            "attr": "seminarRole",
+            "value": "ORGANISED"
+          }
+        },
+        {
+          "points": 4,
+          "label": "Presented at",
+          "when": {
+            "kind": "eq",
+            "attr": "seminarRole",
+            "value": "PRESENTED"
+          }
+        },
+        {
+          "points": 0,
+          "label": "attended",
+          "when": {
+            "kind": "always"
+          }
+        }
+      ],
+      "inputs": [
+        {
+          "key": "seminarRole",
+          "type": "enum",
+          "label": "Your role",
+          "options": [
+            {
+              "value": "ORGANISED",
+              "label": "Organised"
+            },
+            {
+              "value": "PRESENTED",
+              "label": "Presented at"
+            }
+          ],
+          "min": null,
+          "max": null,
+          "helpText": null
+        }
+      ],
+      "cap": {
+        "maxInstances": 3,
+        "text": "max 3/yr"
+      },
+      "quality": null,
+      "impact": null,
+      "pendingSource": null,
+      "exampleAttributes": {
+        "seminarRole": "ORGANISED"
+      }
+    },
+    {
+      "id": 26,
+      "cluster": 3,
+      "seq": 8,
+      "name": "Central govt. funded project (PI)",
+      "maxPoints": 40,
+      "verifier": "RDC",
+      "mode": "UPLOAD",
+      "accrual": "SUM",
+      "rubricText": ">₹10L=40 · ₹5–10L=28 · ₹1–5L=16 · <₹1L=8",
+      "rungs": [
+        {
+          "points": 40,
+          "label": ">₹10L",
+          "when": {
+            "kind": "gt",
+            "attr": "fundingAmountInr",
+            "value": 1000000
+          }
+        },
+        {
+          "points": 28,
+          "label": "₹5–10L",
+          "when": {
+            "kind": "gte",
+            "attr": "fundingAmountInr",
+            "value": 500000
+          }
+        },
+        {
+          "points": 16,
+          "label": "₹1–5L",
+          "when": {
+            "kind": "gte",
+            "attr": "fundingAmountInr",
+            "value": 100000
+          }
+        },
+        {
+          "points": 8,
+          "label": "<₹1L",
+          "when": {
+            "kind": "always"
+          }
+        }
+      ],
+      "inputs": [
+        {
+          "key": "fundingAmountInr",
+          "type": "currencyInr",
+          "label": "Sanctioned amount (₹)",
+          "options": null,
+          "min": 0,
+          "max": null,
+          "helpText": null
+        }
+      ],
+      "cap": null,
+      "quality": null,
+      "impact": null,
+      "pendingSource": null,
+      "exampleAttributes": {
+        "fundingAmountInr": 750000
+      }
+    },
+    {
+      "id": 27,
+      "cluster": 3,
+      "seq": 9,
+      "name": "State / industry funded project",
+      "maxPoints": 30,
+      "verifier": "RDC",
+      "mode": "UPLOAD",
+      "accrual": "SUM",
+      "rubricText": ">₹5L=30 · ₹2–5L=20 · <₹2L=10",
+      "rungs": [
+        {
+          "points": 30,
+          "label": ">₹5L",
+          "when": {
+            "kind": "gt",
+            "attr": "fundingAmountInr",
+            "value": 500000
+          }
+        },
+        {
+          "points": 20,
+          "label": "₹2–5L",
+          "when": {
+            "kind": "gte",
+            "attr": "fundingAmountInr",
+            "value": 200000
+          }
+        },
+        {
+          "points": 10,
+          "label": "<₹2L",
+          "when": {
+            "kind": "always"
+          }
+        }
+      ],
+      "inputs": [
+        {
+          "key": "fundingAmountInr",
+          "type": "currencyInr",
+          "label": "Sanctioned amount (₹)",
+          "options": null,
+          "min": 0,
+          "max": null,
+          "helpText": null
+        }
+      ],
+      "cap": null,
+      "quality": null,
+      "impact": null,
+      "pendingSource": null,
+      "exampleAttributes": {
+        "fundingAmountInr": 750000
+      }
+    },
+    {
+      "id": 28,
+      "cluster": 4,
+      "seq": 1,
+      "name": "Patent published / filed",
+      "maxPoints": 12,
+      "verifier": "RDC",
+      "mode": "UPLOAD",
+      "accrual": "BEST",
+      "rubricText": "Published=12 · Filed=6",
+      "rungs": [
+        {
+          "points": 12,
+          "label": "Published",
+          "when": {
+            "kind": "eq",
+            "attr": "patentStage",
+            "value": "PUBLISHED"
+          }
+        },
+        {
+          "points": 6,
+          "label": "Filed",
+          "when": {
+            "kind": "eq",
+            "attr": "patentStage",
+            "value": "FILED"
+          }
+        },
+        {
+          "points": 0,
+          "label": "none",
+          "when": {
+            "kind": "always"
+          }
+        }
+      ],
+      "inputs": [
+        {
+          "key": "patentStage",
+          "type": "enum",
+          "label": "Patent stage",
+          "options": [
+            {
+              "value": "PUBLISHED",
+              "label": "Published"
+            },
+            {
+              "value": "FILED",
+              "label": "Filed"
+            }
+          ],
+          "min": null,
+          "max": null,
+          "helpText": null
+        }
+      ],
+      "cap": null,
+      "quality": null,
+      "impact": null,
+      "pendingSource": null,
+      "exampleAttributes": {
+        "patentStage": "PUBLISHED"
+      }
+    },
+    {
+      "id": 29,
+      "cluster": 4,
+      "seq": 2,
+      "name": "Patent granted (Indian)",
+      "maxPoints": 25,
+      "verifier": "RDC",
+      "mode": "UPLOAD",
+      "accrual": "SUM",
+      "rubricText": "25 pts each · max 2 at full · additional at 50%",
+      "rungs": [
+        {
+          "points": 25,
+          "label": "each",
+          "when": {
+            "kind": "always"
+          }
+        }
+      ],
+      "inputs": [],
+      "cap": {
+        "fullRateInstances": 2,
+        "text": "max 2 at full · additional at 50%"
+      },
+      "quality": null,
+      "impact": null,
+      "pendingSource": null,
+      "exampleAttributes": {}
+    },
+    {
+      "id": 30,
+      "cluster": 4,
+      "seq": 3,
+      "name": "Patent granted (International)",
+      "maxPoints": 35,
+      "verifier": "RDC",
+      "mode": "UPLOAD",
+      "accrual": "SUM",
+      "rubricText": "35 pts each",
+      "rungs": [
+        {
+          "points": 35,
+          "label": "each",
+          "when": {
+            "kind": "always"
+          }
+        }
+      ],
+      "inputs": [],
+      "cap": null,
+      "quality": null,
+      "impact": null,
+      "pendingSource": null,
+      "exampleAttributes": {}
+    },
+    {
+      "id": 31,
+      "cluster": 4,
+      "seq": 4,
+      "name": "Copyright / design registration",
+      "maxPoints": 8,
+      "verifier": "RDC",
+      "mode": "UPLOAD",
+      "accrual": "SUM",
+      "rubricText": "8 pts each · max 2/yr",
+      "rungs": [
+        {
+          "points": 8,
+          "label": "each",
+          "when": {
+            "kind": "always"
+          }
+        }
+      ],
+      "inputs": [],
+      "cap": {
+        "maxInstances": 2,
+        "text": "max 2/yr"
+      },
+      "quality": null,
+      "impact": null,
+      "pendingSource": null,
+      "exampleAttributes": {}
+    },
+    {
+      "id": 32,
+      "cluster": 4,
+      "seq": 5,
+      "name": "Technology transfer / commercialisation",
+      "maxPoints": 15,
+      "verifier": "RDC",
+      "mode": "UPLOAD",
+      "accrual": "BEST",
+      "rubricText": "Commercialised=15 · Transfer agreement=10",
+      "rungs": [
+        {
+          "points": 15,
+          "label": "Commercialised",
+          "when": {
+            "kind": "eq",
+            "attr": "transferStage",
+            "value": "COMMERCIALISED"
+          }
+        },
+        {
+          "points": 10,
+          "label": "Transfer agreement",
+          "when": {
+            "kind": "eq",
+            "attr": "transferStage",
+            "value": "AGREEMENT"
+          }
+        },
+        {
+          "points": 0,
+          "label": "none",
+          "when": {
+            "kind": "always"
+          }
+        }
+      ],
+      "inputs": [
+        {
+          "key": "transferStage",
+          "type": "enum",
+          "label": "Transfer stage",
+          "options": [
+            {
+              "value": "COMMERCIALISED",
+              "label": "Commercialised"
+            },
+            {
+              "value": "AGREEMENT",
+              "label": "Transfer agreement signed"
+            }
+          ],
+          "min": null,
+          "max": null,
+          "helpText": null
+        }
+      ],
+      "cap": null,
+      "quality": null,
+      "impact": null,
+      "pendingSource": null,
+      "exampleAttributes": {
+        "transferStage": "COMMERCIALISED"
+      }
+    },
+    {
+      "id": 33,
+      "cluster": 4,
+      "seq": 6,
+      "name": "Startup founded / mentored / incubated",
+      "maxPoints": 15,
+      "verifier": "DEAN",
+      "mode": "UPLOAD",
+      "accrual": "BEST",
+      "rubricText": "Funded startup=15 · Registered=10 · Ideation=5",
+      "rungs": [
+        {
+          "points": 15,
+          "label": "Funded startup",
+          "when": {
+            "kind": "eq",
+            "attr": "startupStage",
+            "value": "FUNDED"
+          }
+        },
+        {
+          "points": 10,
+          "label": "Registered",
+          "when": {
+            "kind": "eq",
+            "attr": "startupStage",
+            "value": "REGISTERED"
+          }
+        },
+        {
+          "points": 5,
+          "label": "Ideation",
+          "when": {
+            "kind": "eq",
+            "attr": "startupStage",
+            "value": "IDEATION"
+          }
+        },
+        {
+          "points": 0,
+          "label": "none",
+          "when": {
+            "kind": "always"
+          }
+        }
+      ],
+      "inputs": [
+        {
+          "key": "startupStage",
+          "type": "enum",
+          "label": "Startup stage",
+          "options": [
+            {
+              "value": "FUNDED",
+              "label": "Funded"
+            },
+            {
+              "value": "REGISTERED",
+              "label": "Registered"
+            },
+            {
+              "value": "IDEATION",
+              "label": "Ideation"
+            }
+          ],
+          "min": null,
+          "max": null,
+          "helpText": null
+        }
+      ],
+      "cap": null,
+      "quality": null,
+      "impact": null,
+      "pendingSource": null,
+      "exampleAttributes": {
+        "startupStage": "FUNDED"
+      }
+    },
+    {
+      "id": 34,
+      "cluster": 5,
+      "seq": 1,
+      "name": "Industry expert sessions organised",
+      "maxPoints": 15,
+      "verifier": "HOD",
+      "mode": "UPLOAD",
+      "accrual": "BEST",
+      "rubricText": "≥3/yr=15 · 2=10 · 1=5 · max 5/yr",
+      "rungs": [
+        {
+          "points": 15,
+          "label": "≥3/yr",
+          "when": {
+            "kind": "gte",
+            "attr": "sessionCount",
+            "value": 3
+          }
+        },
+        {
+          "points": 10,
+          "label": "2",
+          "when": {
+            "kind": "gte",
+            "attr": "sessionCount",
+            "value": 2
+          }
+        },
+        {
+          "points": 5,
+          "label": "1",
+          "when": {
+            "kind": "gte",
+            "attr": "sessionCount",
+            "value": 1
+          }
+        },
+        {
+          "points": 0,
+          "label": "none",
+          "when": {
+            "kind": "always"
+          }
+        }
+      ],
+      "inputs": [
+        {
+          "key": "sessionCount",
+          "type": "number",
+          "label": "Expert sessions organised",
+          "options": null,
+          "min": 0,
+          "max": null,
+          "helpText": null
+        }
+      ],
+      "cap": {
+        "text": "max 5/yr"
+      },
+      "quality": null,
+      "impact": null,
+      "pendingSource": null,
+      "exampleAttributes": {
+        "sessionCount": 3
+      }
+    },
+    {
+      "id": 35,
+      "cluster": 5,
+      "seq": 2,
+      "name": "Industry visits organised",
+      "maxPoints": 5,
+      "verifier": "HOD",
+      "mode": "UPLOAD",
+      "accrual": "BEST",
+      "rubricText": "≥2/yr=5 · 1=3",
+      "rungs": [
+        {
+          "points": 5,
+          "label": "≥2/yr",
+          "when": {
+            "kind": "gte",
+            "attr": "visitCount",
+            "value": 2
+          }
+        },
+        {
+          "points": 3,
+          "label": "1",
+          "when": {
+            "kind": "gte",
+            "attr": "visitCount",
+            "value": 1
+          }
+        },
+        {
+          "points": 0,
+          "label": "none",
+          "when": {
+            "kind": "always"
+          }
+        }
+      ],
+      "inputs": [
+        {
+          "key": "visitCount",
+          "type": "number",
+          "label": "Industry visits organised",
+          "options": null,
+          "min": 0,
+          "max": null,
+          "helpText": null
+        }
+      ],
+      "cap": null,
+      "quality": null,
+      "impact": null,
+      "pendingSource": null,
+      "exampleAttributes": {
+        "visitCount": 3
+      }
+    },
+    {
+      "id": 36,
+      "cluster": 5,
+      "seq": 3,
+      "name": "Student internships facilitated",
+      "maxPoints": 10,
+      "verifier": "PLACEMENT",
+      "mode": "AUTO",
+      "accrual": "BEST",
+      "rubricText": "≥5 students=10 · 3–4=6 · 1–2=3",
+      "rungs": [
+        {
+          "points": 10,
+          "label": "≥5 students",
+          "when": {
+            "kind": "gte",
+            "attr": "studentCount",
+            "value": 5
+          }
+        },
+        {
+          "points": 6,
+          "label": "3–4",
+          "when": {
+            "kind": "gte",
+            "attr": "studentCount",
+            "value": 3
+          }
+        },
+        {
+          "points": 3,
+          "label": "1–2",
+          "when": {
+            "kind": "gte",
+            "attr": "studentCount",
+            "value": 1
+          }
+        },
+        {
+          "points": 0,
+          "label": "none",
+          "when": {
+            "kind": "always"
+          }
+        }
+      ],
+      "inputs": [
+        {
+          "key": "studentCount",
+          "type": "number",
+          "label": "Students placed in internships",
+          "options": null,
+          "min": 0,
+          "max": null,
+          "helpText": null
+        }
+      ],
+      "cap": null,
+      "quality": null,
+      "impact": null,
+      "pendingSource": "Placement cell system does not publish per-faculty attribution to BL (B-075).",
+      "exampleAttributes": {
+        "studentCount": 3
+      }
+    },
+    {
+      "id": 37,
+      "cluster": 5,
+      "seq": 4,
+      "name": "MoU facilitated (active & functional)",
+      "maxPoints": 20,
+      "verifier": "DEAN",
+      "mode": "UPLOAD",
+      "accrual": "SUM",
+      "rubricText": "International=20 · National=12 · Regional=6 · max 2/yr",
+      "rungs": [
+        {
+          "points": 20,
+          "label": "International",
+          "when": {
+            "kind": "eq",
+            "attr": "mouScope",
+            "value": "INTERNATIONAL"
+          }
+        },
+        {
+          "points": 12,
+          "label": "National",
+          "when": {
+            "kind": "eq",
+            "attr": "mouScope",
+            "value": "NATIONAL"
+          }
+        },
+        {
+          "points": 6,
+          "label": "Regional",
+          "when": {
+            "kind": "eq",
+            "attr": "mouScope",
+            "value": "REGIONAL"
+          }
+        },
+        {
+          "points": 0,
+          "label": "other",
+          "when": {
+            "kind": "always"
+          }
+        }
+      ],
+      "inputs": [
+        {
+          "key": "mouScope",
+          "type": "enum",
+          "label": "MoU scope",
+          "options": [
+            {
+              "value": "INTERNATIONAL",
+              "label": "International"
+            },
+            {
+              "value": "NATIONAL",
+              "label": "National"
+            },
+            {
+              "value": "REGIONAL",
+              "label": "Regional"
+            }
+          ],
+          "min": null,
+          "max": null,
+          "helpText": null
+        }
+      ],
+      "cap": {
+        "maxInstances": 2,
+        "text": "max 2/yr"
+      },
+      "quality": null,
+      "impact": null,
+      "pendingSource": null,
+      "exampleAttributes": {
+        "mouScope": "INTERNATIONAL"
+      }
+    },
+    {
+      "id": 38,
+      "cluster": 5,
+      "seq": 5,
+      "name": "Consultancy projects (revenue)",
+      "maxPoints": 20,
+      "verifier": "FINANCE",
+      "mode": "UPLOAD",
+      "accrual": "SUM",
+      "rubricText": ">₹5L=20 · ₹2–5L=12 · ₹0.5–2L=7 · <₹0.5L=3",
+      "rungs": [
+        {
+          "points": 20,
+          "label": ">₹5L",
+          "when": {
+            "kind": "gt",
+            "attr": "revenueInr",
+            "value": 500000
+          }
+        },
+        {
+          "points": 12,
+          "label": "₹2–5L",
+          "when": {
+            "kind": "gte",
+            "attr": "revenueInr",
+            "value": 200000
+          }
+        },
+        {
+          "points": 7,
+          "label": "₹0.5–2L",
+          "when": {
+            "kind": "gte",
+            "attr": "revenueInr",
+            "value": 50000
+          }
+        },
+        {
+          "points": 3,
+          "label": "<₹0.5L",
+          "when": {
+            "kind": "always"
+          }
+        }
+      ],
+      "inputs": [
+        {
+          "key": "revenueInr",
+          "type": "currencyInr",
+          "label": "Consultancy revenue (₹)",
+          "options": null,
+          "min": 0,
+          "max": null,
+          "helpText": null
+        }
+      ],
+      "cap": null,
+      "quality": null,
+      "impact": null,
+      "pendingSource": null,
+      "exampleAttributes": {
+        "revenueInr": 750000
+      }
+    },
+    {
+      "id": 39,
+      "cluster": 5,
+      "seq": 6,
+      "name": "Industry certifications earned",
+      "maxPoints": 5,
+      "verifier": "HR",
+      "mode": "UPLOAD",
+      "accrual": "SUM",
+      "rubricText": "5 pts each · max 2/yr",
+      "rungs": [
+        {
+          "points": 5,
+          "label": "each",
+          "when": {
+            "kind": "always"
+          }
+        }
+      ],
+      "inputs": [],
+      "cap": {
+        "maxInstances": 2,
+        "text": "max 2/yr"
+      },
+      "quality": null,
+      "impact": null,
+      "pendingSource": null,
+      "exampleAttributes": {}
+    },
+    {
+      "id": 40,
+      "cluster": 5,
+      "seq": 7,
+      "name": "Alumni engagement activities",
+      "maxPoints": 10,
+      "verifier": "ALUMNI",
+      "mode": "UPLOAD",
+      "accrual": "BEST",
+      "rubricText": "≥2 events/yr=10 · 1=5",
+      "rungs": [
+        {
+          "points": 10,
+          "label": "≥2 events/yr",
+          "when": {
+            "kind": "gte",
+            "attr": "eventCount",
+            "value": 2
+          }
+        },
+        {
+          "points": 5,
+          "label": "1",
+          "when": {
+            "kind": "gte",
+            "attr": "eventCount",
+            "value": 1
+          }
+        },
+        {
+          "points": 0,
+          "label": "none",
+          "when": {
+            "kind": "always"
+          }
+        }
+      ],
+      "inputs": [
+        {
+          "key": "eventCount",
+          "type": "number",
+          "label": "Alumni events",
+          "options": null,
+          "min": 0,
+          "max": null,
+          "helpText": null
+        }
+      ],
+      "cap": null,
+      "quality": null,
+      "impact": null,
+      "pendingSource": null,
+      "exampleAttributes": {
+        "eventCount": 3
+      }
+    },
+    {
+      "id": 41,
+      "cluster": 6,
+      "seq": 1,
+      "name": "Committee leadership (convener/chair)",
+      "maxPoints": 20,
+      "verifier": "REGISTRAR",
+      "mode": "UPLOAD",
+      "accrual": "SUM",
+      "rubricText": "Convener=20 · Co-convener=12 · Member=6 · max 2 roles",
+      "rungs": [
+        {
+          "points": 20,
+          "label": "Convener",
+          "when": {
+            "kind": "eq",
+            "attr": "committeeRole",
+            "value": "CONVENER"
+          }
+        },
+        {
+          "points": 12,
+          "label": "Co-convener",
+          "when": {
+            "kind": "eq",
+            "attr": "committeeRole",
+            "value": "CO_CONVENER"
+          }
+        },
+        {
+          "points": 6,
+          "label": "Member",
+          "when": {
+            "kind": "eq",
+            "attr": "committeeRole",
+            "value": "MEMBER"
+          }
+        },
+        {
+          "points": 0,
+          "label": "none",
+          "when": {
+            "kind": "always"
+          }
+        }
+      ],
+      "inputs": [
+        {
+          "key": "committeeRole",
+          "type": "enum",
+          "label": "Committee role",
+          "options": [
+            {
+              "value": "CONVENER",
+              "label": "Convener / Chair"
+            },
+            {
+              "value": "CO_CONVENER",
+              "label": "Co-convener"
+            },
+            {
+              "value": "MEMBER",
+              "label": "Member"
+            }
+          ],
+          "min": null,
+          "max": null,
+          "helpText": null
+        }
+      ],
+      "cap": {
+        "maxInstances": 2,
+        "text": "max 2 roles"
+      },
+      "quality": null,
+      "impact": null,
+      "pendingSource": null,
+      "exampleAttributes": {
+        "committeeRole": "CONVENER"
+      }
+    },
+    {
+      "id": 42,
+      "cluster": 6,
+      "seq": 2,
+      "name": "Dept / institution events organised",
+      "maxPoints": 15,
+      "verifier": "HOD",
+      "mode": "UPLOAD",
+      "accrual": "BEST",
+      "rubricText": "≥2/yr=15 · 1=8",
+      "rungs": [
+        {
+          "points": 15,
+          "label": "≥2/yr",
+          "when": {
+            "kind": "gte",
+            "attr": "eventCount",
+            "value": 2
+          }
+        },
+        {
+          "points": 8,
+          "label": "1",
+          "when": {
+            "kind": "gte",
+            "attr": "eventCount",
+            "value": 1
+          }
+        },
+        {
+          "points": 0,
+          "label": "none",
+          "when": {
+            "kind": "always"
+          }
+        }
+      ],
+      "inputs": [
+        {
+          "key": "eventCount",
+          "type": "number",
+          "label": "Events organised",
+          "options": null,
+          "min": 0,
+          "max": null,
+          "helpText": null
+        }
+      ],
+      "cap": null,
+      "quality": null,
+      "impact": null,
+      "pendingSource": null,
+      "exampleAttributes": {
+        "eventCount": 3
+      }
+    },
+    {
+      "id": 43,
+      "cluster": 6,
+      "seq": 3,
+      "name": "Exam duty compliance",
+      "maxPoints": 15,
+      "verifier": "COE",
+      "mode": "AUTO",
+      "accrual": "BEST",
+      "rubricText": "100%=15 · 80–99%=9 · <80%=0",
+      "rungs": [
+        {
+          "points": 15,
+          "label": "100%",
+          "when": {
+            "kind": "gte",
+            "attr": "compliancePercent",
+            "value": 100
+          }
+        },
+        {
+          "points": 9,
+          "label": "80–99%",
+          "when": {
+            "kind": "gte",
+            "attr": "compliancePercent",
+            "value": 80
+          }
+        },
+        {
+          "points": 0,
+          "label": "<80%",
+          "when": {
+            "kind": "always"
+          }
+        }
+      ],
+      "inputs": [
+        {
+          "key": "compliancePercent",
+          "type": "percent",
+          "label": "Exam duty compliance (%)",
+          "options": null,
+          "min": 0,
+          "max": 100,
+          "helpText": null
+        }
+      ],
+      "cap": null,
+      "quality": null,
+      "impact": null,
+      "pendingSource": "COE duty roster does not publish to BL (B-075).",
+      "exampleAttributes": {
+        "compliancePercent": 95
+      }
+    },
+    {
+      "id": 44,
+      "cluster": 6,
+      "seq": 4,
+      "name": "Admission support activities",
+      "maxPoints": 10,
+      "verifier": "ADMISSIONS",
+      "mode": "UPLOAD",
+      "accrual": "BEST",
+      "rubricText": "Active=10 · partial=5",
+      "rungs": [
+        {
+          "points": 10,
+          "label": "Active",
+          "when": {
+            "kind": "eq",
+            "attr": "participation",
+            "value": "ACTIVE"
+          }
+        },
+        {
+          "points": 5,
+          "label": "Partial",
+          "when": {
+            "kind": "eq",
+            "attr": "participation",
+            "value": "PARTIAL"
+          }
+        },
+        {
+          "points": 0,
+          "label": "Nil",
+          "when": {
+            "kind": "always"
+          }
+        }
+      ],
+      "inputs": [
+        {
+          "key": "participation",
+          "type": "enum",
+          "label": "Participation level",
+          "options": [
+            {
+              "value": "ACTIVE",
+              "label": "Active"
+            },
+            {
+              "value": "PARTIAL",
+              "label": "Partial"
+            },
+            {
+              "value": "NIL",
+              "label": "Nil"
+            }
+          ],
+          "min": null,
+          "max": null,
+          "helpText": null
+        }
+      ],
+      "cap": null,
+      "quality": null,
+      "impact": null,
+      "pendingSource": null,
+      "exampleAttributes": {
+        "participation": "ACTIVE"
+      }
+    },
+    {
+      "id": 45,
+      "cluster": 6,
+      "seq": 5,
+      "name": "NSS / NCC / social extension activity",
+      "maxPoints": 10,
+      "verifier": "HOD",
+      "mode": "UPLOAD",
+      "accrual": "BEST",
+      "rubricText": "Active coordinator=10 · Participant=5 · Nil=0",
+      "rungs": [
+        {
+          "points": 10,
+          "label": "Active coordinator",
+          "when": {
+            "kind": "eq",
+            "attr": "extensionRole",
+            "value": "COORDINATOR"
+          }
+        },
+        {
+          "points": 5,
+          "label": "Participant",
+          "when": {
+            "kind": "eq",
+            "attr": "extensionRole",
+            "value": "PARTICIPANT"
+          }
+        },
+        {
+          "points": 0,
+          "label": "Nil",
+          "when": {
+            "kind": "always"
+          }
+        }
+      ],
+      "inputs": [
+        {
+          "key": "extensionRole",
+          "type": "enum",
+          "label": "Extension role",
+          "options": [
+            {
+              "value": "COORDINATOR",
+              "label": "Active coordinator"
+            },
+            {
+              "value": "PARTICIPANT",
+              "label": "Participant"
+            },
+            {
+              "value": "NIL",
+              "label": "Nil"
+            }
+          ],
+          "min": null,
+          "max": null,
+          "helpText": null
+        }
+      ],
+      "cap": null,
+      "quality": null,
+      "impact": null,
+      "pendingSource": null,
+      "exampleAttributes": {
+        "extensionRole": "COORDINATOR"
+      }
+    },
+    {
+      "id": 46,
+      "cluster": 6,
+      "seq": 6,
+      "name": "NAAC documentation contribution",
+      "maxPoints": 10,
+      "verifier": "IQAC",
+      "mode": "UPLOAD",
+      "accrual": "BEST",
+      "rubricText": "Lead contributor=10 · Active=6 · Passive=0",
+      "rungs": [
+        {
+          "points": 10,
+          "label": "Lead contributor",
+          "when": {
+            "kind": "eq",
+            "attr": "contributionLevel",
+            "value": "LEAD"
+          }
+        },
+        {
+          "points": 6,
+          "label": "Active",
+          "when": {
+            "kind": "eq",
+            "attr": "contributionLevel",
+            "value": "ACTIVE"
+          }
+        },
+        {
+          "points": 0,
+          "label": "Passive",
+          "when": {
+            "kind": "always"
+          }
+        }
+      ],
+      "inputs": [
+        {
+          "key": "contributionLevel",
+          "type": "enum",
+          "label": "Contribution level",
+          "options": [
+            {
+              "value": "LEAD",
+              "label": "Lead contributor"
+            },
+            {
+              "value": "ACTIVE",
+              "label": "Active"
+            },
+            {
+              "value": "PASSIVE",
+              "label": "Passive"
+            }
+          ],
+          "min": null,
+          "max": null,
+          "helpText": null
+        }
+      ],
+      "cap": null,
+      "quality": null,
+      "impact": null,
+      "pendingSource": null,
+      "exampleAttributes": {
+        "contributionLevel": "LEAD"
+      }
+    },
+    {
+      "id": 47,
+      "cluster": 6,
+      "seq": 7,
+      "name": "NBA documentation contribution",
+      "maxPoints": 10,
+      "verifier": "NBA_COORD",
+      "mode": "UPLOAD",
+      "accrual": "BEST",
+      "rubricText": "Lead contributor=10 · Active=6 · Passive=0",
+      "rungs": [
+        {
+          "points": 10,
+          "label": "Lead contributor",
+          "when": {
+            "kind": "eq",
+            "attr": "contributionLevel",
+            "value": "LEAD"
+          }
+        },
+        {
+          "points": 6,
+          "label": "Active",
+          "when": {
+            "kind": "eq",
+            "attr": "contributionLevel",
+            "value": "ACTIVE"
+          }
+        },
+        {
+          "points": 0,
+          "label": "Passive",
+          "when": {
+            "kind": "always"
+          }
+        }
+      ],
+      "inputs": [
+        {
+          "key": "contributionLevel",
+          "type": "enum",
+          "label": "Contribution level",
+          "options": [
+            {
+              "value": "LEAD",
+              "label": "Lead contributor"
+            },
+            {
+              "value": "ACTIVE",
+              "label": "Active"
+            },
+            {
+              "value": "PASSIVE",
+              "label": "Passive"
+            }
+          ],
+          "min": null,
+          "max": null,
+          "helpText": null
+        }
+      ],
+      "cap": null,
+      "quality": null,
+      "impact": null,
+      "pendingSource": null,
+      "exampleAttributes": {
+        "contributionLevel": "LEAD"
+      }
+    },
+    {
+      "id": 48,
+      "cluster": 6,
+      "seq": 8,
+      "name": "NIRF data submission & audit compliance",
+      "maxPoints": 15,
+      "verifier": "IQAC",
+      "mode": "AUTO",
+      "accrual": "BEST",
+      "rubricText": "Complete & on time + zero observations=15 · partial=8 · nil=0",
+      "rungs": [
+        {
+          "points": 15,
+          "label": "Complete & on time, zero observations",
+          "when": {
+            "kind": "eq",
+            "attr": "nirfCompliance",
+            "value": "COMPLETE"
+          }
+        },
+        {
+          "points": 8,
+          "label": "Partial",
+          "when": {
+            "kind": "eq",
+            "attr": "nirfCompliance",
+            "value": "PARTIAL"
+          }
+        },
+        {
+          "points": 0,
+          "label": "Nil",
+          "when": {
+            "kind": "always"
+          }
+        }
+      ],
+      "inputs": [
+        {
+          "key": "nirfCompliance",
+          "type": "enum",
+          "label": "NIRF compliance",
+          "options": [
+            {
+              "value": "COMPLETE",
+              "label": "Complete & on time, zero observations"
+            },
+            {
+              "value": "PARTIAL",
+              "label": "Partial"
+            },
+            {
+              "value": "NIL",
+              "label": "Nil"
+            }
+          ],
+          "min": null,
+          "max": null,
+          "helpText": null
+        }
+      ],
+      "cap": null,
+      "quality": null,
+      "impact": null,
+      "pendingSource": null,
+      "exampleAttributes": {
+        "nirfCompliance": "COMPLETE"
+      }
+    },
+    {
+      "id": 49,
+      "cluster": 6,
+      "seq": 9,
+      "name": "Timely internal report submission",
+      "maxPoints": 10,
+      "verifier": "IQAC",
+      "mode": "AUTO",
+      "accrual": "BEST",
+      "rubricText": "All on time=10 · 1 delay=5 · 2+ delays=0",
+      "rungs": [
+        {
+          "points": 10,
+          "label": "All on time",
+          "when": {
+            "kind": "range",
+            "attr": "delayCount",
+            "min": 0,
+            "max": 0
+          }
+        },
+        {
+          "points": 5,
+          "label": "1 delay",
+          "when": {
+            "kind": "range",
+            "attr": "delayCount",
+            "min": 1,
+            "max": 1
+          }
+        },
+        {
+          "points": 0,
+          "label": "2+ delays",
+          "when": {
+            "kind": "always"
+          }
+        }
+      ],
+      "inputs": [
+        {
+          "key": "delayCount",
+          "type": "number",
+          "label": "Number of late submissions",
+          "options": null,
+          "min": 0,
+          "max": null,
+          "helpText": null
+        }
+      ],
+      "cap": null,
+      "quality": null,
+      "impact": null,
+      "pendingSource": null,
+      "exampleAttributes": {
+        "delayCount": 3
+      }
+    },
+    {
+      "id": 50,
+      "cluster": 7,
+      "seq": 1,
+      "name": "FDP attended (≥5 days, AICTE/TEQIP)",
+      "maxPoints": 15,
+      "verifier": "HR",
+      "mode": "UPLOAD",
+      "accrual": "SUM",
+      "rubricText": "15 pts each · max 2 at full · additional at 50%",
+      "rungs": [
+        {
+          "points": 15,
+          "label": "each",
+          "when": {
+            "kind": "always"
+          }
+        }
+      ],
+      "inputs": [],
+      "cap": {
+        "fullRateInstances": 2,
+        "text": "max 2 at full · additional at 50%"
+      },
+      "quality": null,
+      "impact": null,
+      "pendingSource": null,
+      "exampleAttributes": {}
+    },
+    {
+      "id": 51,
+      "cluster": 7,
+      "seq": 2,
+      "name": "FDP attended (1–4 days, workshop)",
+      "maxPoints": 8,
+      "verifier": "HR",
+      "mode": "UPLOAD",
+      "accrual": "SUM",
+      "rubricText": "8 pts each · max 3/yr",
+      "rungs": [
+        {
+          "points": 8,
+          "label": "each",
+          "when": {
+            "kind": "always"
+          }
+        }
+      ],
+      "inputs": [],
+      "cap": {
+        "maxInstances": 3,
+        "text": "max 3/yr"
+      },
+      "quality": null,
+      "impact": null,
+      "pendingSource": null,
+      "exampleAttributes": {}
+    },
+    {
+      "id": 52,
+      "cluster": 7,
+      "seq": 3,
+      "name": "NPTEL / SWAYAM / MOOC certification",
+      "maxPoints": 10,
+      "verifier": "HR",
+      "mode": "UPLOAD",
+      "accrual": "BEST",
+      "rubricText": "Elite+Gold=10 · Elite=7 · Completion=3",
+      "rungs": [
+        {
+          "points": 10,
+          "label": "Elite + Gold",
+          "when": {
+            "kind": "eq",
+            "attr": "certificationGrade",
+            "value": "ELITE_GOLD"
+          }
+        },
+        {
+          "points": 7,
+          "label": "Elite",
+          "when": {
+            "kind": "eq",
+            "attr": "certificationGrade",
+            "value": "ELITE"
+          }
+        },
+        {
+          "points": 3,
+          "label": "Completion",
+          "when": {
+            "kind": "eq",
+            "attr": "certificationGrade",
+            "value": "COMPLETION"
+          }
+        },
+        {
+          "points": 0,
+          "label": "none",
+          "when": {
+            "kind": "always"
+          }
+        }
+      ],
+      "inputs": [
+        {
+          "key": "certificationGrade",
+          "type": "enum",
+          "label": "Certification grade",
+          "options": [
+            {
+              "value": "ELITE_GOLD",
+              "label": "Elite + Gold"
+            },
+            {
+              "value": "ELITE",
+              "label": "Elite"
+            },
+            {
+              "value": "COMPLETION",
+              "label": "Completion"
+            }
+          ],
+          "min": null,
+          "max": null,
+          "helpText": null
+        }
+      ],
+      "cap": null,
+      "quality": null,
+      "impact": null,
+      "pendingSource": null,
+      "exampleAttributes": {
+        "certificationGrade": "ELITE_GOLD"
+      }
+    },
+    {
+      "id": 53,
+      "cluster": 7,
+      "seq": 4,
+      "name": "AI / Data Science upskilling",
+      "maxPoints": 10,
+      "verifier": "HR",
+      "mode": "UPLOAD",
+      "accrual": "BEST",
+      "rubricText": "Course with assessment=10 · audit only=4",
+      "rungs": [
+        {
+          "points": 10,
+          "label": "Course with assessment",
+          "when": {
+            "kind": "eq",
+            "attr": "courseMode",
+            "value": "ASSESSED"
+          }
+        },
+        {
+          "points": 4,
+          "label": "Audit only",
+          "when": {
+            "kind": "eq",
+            "attr": "courseMode",
+            "value": "AUDIT"
+          }
+        },
+        {
+          "points": 0,
+          "label": "none",
+          "when": {
+            "kind": "always"
+          }
+        }
+      ],
+      "inputs": [
+        {
+          "key": "courseMode",
+          "type": "enum",
+          "label": "Course mode",
+          "options": [
+            {
+              "value": "ASSESSED",
+              "label": "Completed with assessment"
+            },
+            {
+              "value": "AUDIT",
+              "label": "Audit only"
+            }
+          ],
+          "min": null,
+          "max": null,
+          "helpText": null
+        }
+      ],
+      "cap": null,
+      "quality": null,
+      "impact": null,
+      "pendingSource": null,
+      "exampleAttributes": {
+        "courseMode": "ASSESSED"
+      }
+    },
+    {
+      "id": 54,
+      "cluster": 7,
+      "seq": 5,
+      "name": "Higher qualification in progress",
+      "maxPoints": 8,
+      "verifier": "HR",
+      "mode": "UPLOAD",
+      "accrual": "BEST",
+      "rubricText": "PhD registered=8 · Coursework complete=5",
+      "rungs": [
+        {
+          "points": 8,
+          "label": "PhD registered",
+          "when": {
+            "kind": "eq",
+            "attr": "qualificationStage",
+            "value": "PHD_REGISTERED"
+          }
+        },
+        {
+          "points": 5,
+          "label": "Coursework complete",
+          "when": {
+            "kind": "eq",
+            "attr": "qualificationStage",
+            "value": "COURSEWORK_COMPLETE"
+          }
+        },
+        {
+          "points": 0,
+          "label": "none",
+          "when": {
+            "kind": "always"
+          }
+        }
+      ],
+      "inputs": [
+        {
+          "key": "qualificationStage",
+          "type": "enum",
+          "label": "Qualification stage",
+          "options": [
+            {
+              "value": "PHD_REGISTERED",
+              "label": "PhD registered"
+            },
+            {
+              "value": "COURSEWORK_COMPLETE",
+              "label": "Coursework complete"
+            }
+          ],
+          "min": null,
+          "max": null,
+          "helpText": null
+        }
+      ],
+      "cap": null,
+      "quality": null,
+      "impact": null,
+      "pendingSource": null,
+      "exampleAttributes": {
+        "qualificationStage": "PHD_REGISTERED"
+      }
+    },
+    {
+      "id": 55,
+      "cluster": 7,
+      "seq": 6,
+      "name": "Professional body membership (active)",
+      "maxPoints": 5,
+      "verifier": "HR",
+      "mode": "UPLOAD",
+      "accrual": "BEST",
+      "rubricText": "Fellow=5 · Senior Member=4 · Member=2",
+      "rungs": [
+        {
+          "points": 5,
+          "label": "Fellow",
+          "when": {
+            "kind": "eq",
+            "attr": "membershipGrade",
+            "value": "FELLOW"
+          }
+        },
+        {
+          "points": 4,
+          "label": "Senior Member",
+          "when": {
+            "kind": "eq",
+            "attr": "membershipGrade",
+            "value": "SENIOR_MEMBER"
+          }
+        },
+        {
+          "points": 2,
+          "label": "Member",
+          "when": {
+            "kind": "eq",
+            "attr": "membershipGrade",
+            "value": "MEMBER"
+          }
+        },
+        {
+          "points": 0,
+          "label": "none",
+          "when": {
+            "kind": "always"
+          }
+        }
+      ],
+      "inputs": [
+        {
+          "key": "membershipGrade",
+          "type": "enum",
+          "label": "Membership grade",
+          "options": [
+            {
+              "value": "FELLOW",
+              "label": "Fellow"
+            },
+            {
+              "value": "SENIOR_MEMBER",
+              "label": "Senior Member"
+            },
+            {
+              "value": "MEMBER",
+              "label": "Member"
+            }
+          ],
+          "min": null,
+          "max": null,
+          "helpText": null
+        }
+      ],
+      "cap": null,
+      "quality": null,
+      "impact": null,
+      "pendingSource": null,
+      "exampleAttributes": {
+        "membershipGrade": "FELLOW"
+      }
+    },
+    {
+      "id": 56,
+      "cluster": 7,
+      "seq": 7,
+      "name": "Academic profiles (ORCID/Scholar/Scopus)",
+      "maxPoints": 14,
+      "verifier": "SYSTEM",
+      "mode": "AUTO",
+      "accrual": "BEST",
+      "rubricText": "All 3 complete & linked=14 · 2=8 · 1=3",
+      "rungs": [
+        {
+          "points": 14,
+          "label": "All 3 complete & linked",
+          "when": {
+            "kind": "gte",
+            "attr": "linkedProfileCount",
+            "value": 3
+          }
+        },
+        {
+          "points": 8,
+          "label": "2 linked",
+          "when": {
+            "kind": "gte",
+            "attr": "linkedProfileCount",
+            "value": 2
+          }
+        },
+        {
+          "points": 3,
+          "label": "1 linked",
+          "when": {
+            "kind": "gte",
+            "attr": "linkedProfileCount",
+            "value": 1
+          }
+        },
+        {
+          "points": 0,
+          "label": "none",
+          "when": {
+            "kind": "always"
+          }
+        }
+      ],
+      "inputs": [
+        {
+          "key": "linkedProfileCount",
+          "type": "number",
+          "label": "Linked academic profiles (ORCID / Google Scholar / Scopus)",
+          "options": null,
+          "min": 0,
+          "max": 3,
+          "helpText": null
+        }
+      ],
+      "cap": null,
+      "quality": null,
+      "impact": null,
+      "pendingSource": null,
+      "exampleAttributes": {
+        "linkedProfileCount": 3
+      }
+    },
+    {
+      "id": 57,
+      "cluster": 8,
+      "seq": 1,
+      "name": "Foreign co-authored research paper",
+      "maxPoints": 10,
+      "verifier": "SYSTEM",
+      "mode": "AUTO",
+      "accrual": "BEST",
+      "rubricText": "≥3 papers with foreign co-authors/yr=10 · 1–2=5",
+      "rungs": [
+        {
+          "points": 10,
+          "label": "≥3 papers/yr",
+          "when": {
+            "kind": "gte",
+            "attr": "paperCount",
+            "value": 3
+          }
+        },
+        {
+          "points": 5,
+          "label": "1–2",
+          "when": {
+            "kind": "gte",
+            "attr": "paperCount",
+            "value": 1
+          }
+        },
+        {
+          "points": 0,
+          "label": "none",
+          "when": {
+            "kind": "always"
+          }
+        }
+      ],
+      "inputs": [
+        {
+          "key": "paperCount",
+          "type": "number",
+          "label": "Papers with foreign co-authors this year",
+          "options": null,
+          "min": 0,
+          "max": null,
+          "helpText": null
+        }
+      ],
+      "cap": null,
+      "quality": null,
+      "impact": null,
+      "pendingSource": "No Scopus/Scholar API integration exists yet (B-075).",
+      "exampleAttributes": {
+        "paperCount": 3
+      }
+    },
+    {
+      "id": 58,
+      "cluster": 8,
+      "seq": 2,
+      "name": "International research collaboration",
+      "maxPoints": 12,
+      "verifier": "DEAN",
+      "mode": "UPLOAD",
+      "accrual": "BEST",
+      "rubricText": "Active joint project=12 · Research MoU=7",
+      "rungs": [
+        {
+          "points": 12,
+          "label": "Active joint project",
+          "when": {
+            "kind": "eq",
+            "attr": "collaborationType",
+            "value": "JOINT_PROJECT"
+          }
+        },
+        {
+          "points": 7,
+          "label": "Research MoU",
+          "when": {
+            "kind": "eq",
+            "attr": "collaborationType",
+            "value": "RESEARCH_MOU"
+          }
+        },
+        {
+          "points": 0,
+          "label": "none",
+          "when": {
+            "kind": "always"
+          }
+        }
+      ],
+      "inputs": [
+        {
+          "key": "collaborationType",
+          "type": "enum",
+          "label": "Collaboration type",
+          "options": [
+            {
+              "value": "JOINT_PROJECT",
+              "label": "Active joint project"
+            },
+            {
+              "value": "RESEARCH_MOU",
+              "label": "Research MoU"
+            }
+          ],
+          "min": null,
+          "max": null,
+          "helpText": null
+        }
+      ],
+      "cap": null,
+      "quality": null,
+      "impact": null,
+      "pendingSource": null,
+      "exampleAttributes": {
+        "collaborationType": "JOINT_PROJECT"
+      }
+    },
+    {
+      "id": 59,
+      "cluster": 8,
+      "seq": 3,
+      "name": "Visiting lecture at foreign institution",
+      "maxPoints": 10,
+      "verifier": "HOD",
+      "mode": "UPLOAD",
+      "accrual": "SUM",
+      "rubricText": "10 pts each · max 2/yr",
+      "rungs": [
+        {
+          "points": 10,
+          "label": "each",
+          "when": {
+            "kind": "always"
+          }
+        }
+      ],
+      "inputs": [],
+      "cap": {
+        "maxInstances": 2,
+        "text": "max 2/yr"
+      },
+      "quality": null,
+      "impact": null,
+      "pendingSource": null,
+      "exampleAttributes": {}
+    },
+    {
+      "id": 60,
+      "cluster": 8,
+      "seq": 4,
+      "name": "International conference presented",
+      "maxPoints": 8,
+      "verifier": "HR",
+      "mode": "UPLOAD",
+      "accrual": "SUM",
+      "rubricText": "8 pts · max 2/yr",
+      "rungs": [
+        {
+          "points": 8,
+          "label": "each",
+          "when": {
+            "kind": "always"
+          }
+        }
+      ],
+      "inputs": [],
+      "cap": {
+        "maxInstances": 2,
+        "text": "max 2/yr"
+      },
+      "quality": null,
+      "impact": null,
+      "pendingSource": null,
+      "exampleAttributes": {}
+    },
+    {
+      "id": 61,
+      "cluster": 8,
+      "seq": 5,
+      "name": "Faculty exchange programme (outbound)",
+      "maxPoints": 10,
+      "verifier": "DEAN",
+      "mode": "UPLOAD",
+      "accrual": "BEST",
+      "rubricText": "≥2 weeks=10 · 1 week=6",
+      "rungs": [
+        {
+          "points": 10,
+          "label": "≥2 weeks",
+          "when": {
+            "kind": "gte",
+            "attr": "durationWeeks",
+            "value": 2
+          }
+        },
+        {
+          "points": 6,
+          "label": "1 week",
+          "when": {
+            "kind": "gte",
+            "attr": "durationWeeks",
+            "value": 1
+          }
+        },
+        {
+          "points": 0,
+          "label": "none",
+          "when": {
+            "kind": "always"
+          }
+        }
+      ],
+      "inputs": [
+        {
+          "key": "durationWeeks",
+          "type": "number",
+          "label": "Exchange duration (weeks)",
+          "options": null,
+          "min": 0,
+          "max": null,
+          "helpText": null
+        }
+      ],
+      "cap": null,
+      "quality": null,
+      "impact": null,
+      "pendingSource": null,
+      "exampleAttributes": {
+        "durationWeeks": 3
+      }
+    },
+    {
+      "id": 62,
+      "cluster": 8,
+      "seq": 6,
+      "name": "International certification / award",
+      "maxPoints": 5,
+      "verifier": "DEAN",
+      "mode": "UPLOAD",
+      "accrual": "BEST",
+      "rubricText": "International award=5 · Global cert=3",
+      "rungs": [
+        {
+          "points": 5,
+          "label": "International award",
+          "when": {
+            "kind": "eq",
+            "attr": "recognitionType",
+            "value": "AWARD"
+          }
+        },
+        {
+          "points": 3,
+          "label": "Global certification",
+          "when": {
+            "kind": "eq",
+            "attr": "recognitionType",
+            "value": "CERTIFICATION"
+          }
+        },
+        {
+          "points": 0,
+          "label": "none",
+          "when": {
+            "kind": "always"
+          }
+        }
+      ],
+      "inputs": [
+        {
+          "key": "recognitionType",
+          "type": "enum",
+          "label": "Recognition type",
+          "options": [
+            {
+              "value": "AWARD",
+              "label": "International award"
+            },
+            {
+              "value": "CERTIFICATION",
+              "label": "Global certification"
+            }
+          ],
+          "min": null,
+          "max": null,
+          "helpText": null
+        }
+      ],
+      "cap": null,
+      "quality": null,
+      "impact": null,
+      "pendingSource": null,
+      "exampleAttributes": {
+        "recognitionType": "AWARD"
+      }
+    },
+    {
+      "id": 63,
+      "cluster": 8,
+      "seq": 7,
+      "name": "International student / scholar mentored",
+      "maxPoints": 5,
+      "verifier": "DEAN",
+      "mode": "UPLOAD",
+      "accrual": "SUM",
+      "rubricText": "5 pts each · max 2/yr",
+      "rungs": [
+        {
+          "points": 5,
+          "label": "each",
+          "when": {
+            "kind": "always"
+          }
+        }
+      ],
+      "inputs": [],
+      "cap": {
+        "maxInstances": 2,
+        "text": "max 2/yr"
+      },
+      "quality": null,
+      "impact": null,
+      "pendingSource": null,
+      "exampleAttributes": {}
+    },
+    {
+      "id": 64,
+      "cluster": 9,
+      "seq": 1,
+      "name": "PRAJNA profile completeness",
+      "maxPoints": 15,
+      "verifier": "SYSTEM",
+      "mode": "AUTO",
+      "accrual": "BEST",
+      "rubricText": "100%=15 · 90–99%=10 · 75–89%=5 · <75%=0",
+      "rungs": [
+        {
+          "points": 15,
+          "label": "100%",
+          "when": {
+            "kind": "gte",
+            "attr": "profileCompleteness",
+            "value": 100
+          }
+        },
+        {
+          "points": 10,
+          "label": "90–99%",
+          "when": {
+            "kind": "gte",
+            "attr": "profileCompleteness",
+            "value": 90
+          }
+        },
+        {
+          "points": 5,
+          "label": "75–89%",
+          "when": {
+            "kind": "gte",
+            "attr": "profileCompleteness",
+            "value": 75
+          }
+        },
+        {
+          "points": 0,
+          "label": "<75%",
+          "when": {
+            "kind": "always"
+          }
+        }
+      ],
+      "inputs": [
+        {
+          "key": "profileCompleteness",
+          "type": "percent",
+          "label": "Profile completeness (%)",
+          "options": null,
+          "min": 0,
+          "max": 100,
+          "helpText": "Supplied by Module 7 (Faculty Data) — read-only for faculty."
+        }
+      ],
+      "cap": null,
+      "quality": null,
+      "impact": null,
+      "pendingSource": null,
+      "exampleAttributes": {
+        "profileCompleteness": 95
+      }
+    },
+    {
+      "id": 65,
+      "cluster": 9,
+      "seq": 2,
+      "name": "Daily / weekly active usage of PRAJNA",
+      "maxPoints": 5,
+      "verifier": "SYSTEM",
+      "mode": "AUTO",
+      "accrual": "BEST",
+      "rubricText": "Daily active=5 · Weekly=3 · Monthly=1",
+      "rungs": [
+        {
+          "points": 5,
+          "label": "Daily active",
+          "when": {
+            "kind": "eq",
+            "attr": "usageCadence",
+            "value": "DAILY"
+          }
+        },
+        {
+          "points": 3,
+          "label": "Weekly",
+          "when": {
+            "kind": "eq",
+            "attr": "usageCadence",
+            "value": "WEEKLY"
+          }
+        },
+        {
+          "points": 1,
+          "label": "Monthly",
+          "when": {
+            "kind": "eq",
+            "attr": "usageCadence",
+            "value": "MONTHLY"
+          }
+        },
+        {
+          "points": 0,
+          "label": "Inactive",
+          "when": {
+            "kind": "always"
+          }
+        }
+      ],
+      "inputs": [
+        {
+          "key": "usageCadence",
+          "type": "enum",
+          "label": "PRAJNA usage cadence",
+          "options": [
+            {
+              "value": "DAILY",
+              "label": "Daily active"
+            },
+            {
+              "value": "WEEKLY",
+              "label": "Weekly"
+            },
+            {
+              "value": "MONTHLY",
+              "label": "Monthly"
+            },
+            {
+              "value": "INACTIVE",
+              "label": "Inactive"
+            }
+          ],
+          "min": null,
+          "max": null,
+          "helpText": null
+        }
+      ],
+      "cap": null,
+      "quality": null,
+      "impact": null,
+      "pendingSource": "Module 20 (AI Companion) — see docs/action-requests/M20_AI_COMPANION.md (B-076).",
+      "exampleAttributes": {
+        "usageCadence": "DAILY"
+      }
+    },
+    {
+      "id": 66,
+      "cluster": 9,
+      "seq": 3,
+      "name": "AI Companion interaction quality",
+      "maxPoints": 5,
+      "verifier": "SYSTEM",
+      "mode": "AUTO",
+      "accrual": "BEST",
+      "rubricText": "Goals + reflections active=5 · Partial=2",
+      "rungs": [
+        {
+          "points": 5,
+          "label": "Goals + reflections active",
+          "when": {
+            "kind": "eq",
+            "attr": "interactionQuality",
+            "value": "FULL"
+          }
+        },
+        {
+          "points": 2,
+          "label": "Partial",
+          "when": {
+            "kind": "eq",
+            "attr": "interactionQuality",
+            "value": "PARTIAL"
+          }
+        },
+        {
+          "points": 0,
+          "label": "None",
+          "when": {
+            "kind": "always"
+          }
+        }
+      ],
+      "inputs": [
+        {
+          "key": "interactionQuality",
+          "type": "enum",
+          "label": "AI Companion interaction quality",
+          "options": [
+            {
+              "value": "FULL",
+              "label": "Goals + reflections both active"
+            },
+            {
+              "value": "PARTIAL",
+              "label": "One of the two active"
+            },
+            {
+              "value": "NONE",
+              "label": "Neither"
+            }
+          ],
+          "min": null,
+          "max": null,
+          "helpText": null
+        }
+      ],
+      "cap": null,
+      "quality": null,
+      "impact": null,
+      "pendingSource": "Module 20 (AI Companion) — see docs/action-requests/M20_AI_COMPANION.md (B-076).",
+      "exampleAttributes": {
+        "interactionQuality": "FULL"
+      }
+    },
+    {
+      "id": 67,
+      "cluster": 9,
+      "seq": 4,
+      "name": "Leaderboard rank improvement (annual)",
+      "maxPoints": 10,
+      "verifier": "SYSTEM",
+      "mode": "AUTO",
+      "accrual": "BEST",
+      "rubricText": "Top 10% dept=10 · Top 25%=6 · Improved rank=3",
+      "rungs": [
+        {
+          "points": 10,
+          "label": "Top 10% of department",
+          "when": {
+            "kind": "eq",
+            "attr": "rankBand",
+            "value": "TOP_10"
+          }
+        },
+        {
+          "points": 6,
+          "label": "Top 25%",
+          "when": {
+            "kind": "eq",
+            "attr": "rankBand",
+            "value": "TOP_25"
+          }
+        },
+        {
+          "points": 3,
+          "label": "Improved rank",
+          "when": {
+            "kind": "eq",
+            "attr": "rankBand",
+            "value": "IMPROVED"
+          }
+        },
+        {
+          "points": 0,
+          "label": "No improvement",
+          "when": {
+            "kind": "always"
+          }
+        }
+      ],
+      "inputs": [
+        {
+          "key": "rankBand",
+          "type": "enum",
+          "label": "Leaderboard standing",
+          "options": [
+            {
+              "value": "TOP_10",
+              "label": "Top 10% of department"
+            },
+            {
+              "value": "TOP_25",
+              "label": "Top 25%"
+            },
+            {
+              "value": "IMPROVED",
+              "label": "Rank improved year-on-year"
+            },
+            {
+              "value": "NONE",
+              "label": "No improvement"
+            }
+          ],
+          "min": null,
+          "max": null,
+          "helpText": null
+        }
+      ],
+      "cap": null,
+      "quality": null,
+      "impact": null,
+      "pendingSource": "Module 15 prior-year archive; only safe to compute at AY rollover, not live (B-077).",
+      "exampleAttributes": {
+        "rankBand": "TOP_10"
+      }
+    },
+    {
+      "id": 68,
+      "cluster": 9,
+      "seq": 5,
+      "name": "MOOC / course created (published)",
+      "maxPoints": 7,
+      "verifier": "DEAN",
+      "mode": "UPLOAD",
+      "accrual": "BEST",
+      "rubricText": "Published with enrolled learners=7 · Draft=3",
+      "rungs": [
+        {
+          "points": 7,
+          "label": "Published with enrolled learners",
+          "when": {
+            "kind": "eq",
+            "attr": "courseStatus",
+            "value": "PUBLISHED"
+          }
+        },
+        {
+          "points": 3,
+          "label": "Draft",
+          "when": {
+            "kind": "eq",
+            "attr": "courseStatus",
+            "value": "DRAFT"
+          }
+        },
+        {
+          "points": 0,
+          "label": "none",
+          "when": {
+            "kind": "always"
+          }
+        }
+      ],
+      "inputs": [
+        {
+          "key": "courseStatus",
+          "type": "enum",
+          "label": "Course status",
+          "options": [
+            {
+              "value": "PUBLISHED",
+              "label": "Published with enrolled learners"
+            },
+            {
+              "value": "DRAFT",
+              "label": "Draft"
+            }
+          ],
+          "min": null,
+          "max": null,
+          "helpText": null
+        }
+      ],
+      "cap": null,
+      "quality": null,
+      "impact": null,
+      "pendingSource": null,
+      "exampleAttributes": {
+        "courseStatus": "PUBLISHED"
+      }
+    },
+    {
+      "id": 69,
+      "cluster": 9,
+      "seq": 6,
+      "name": "Educational videos / OER created",
+      "maxPoints": 5,
+      "verifier": "HOD",
+      "mode": "UPLOAD",
+      "accrual": "BEST",
+      "rubricText": "≥5 verified resources=5 · 2–4=3",
+      "rungs": [
+        {
+          "points": 5,
+          "label": "≥5 verified resources",
+          "when": {
+            "kind": "gte",
+            "attr": "resourceCount",
+            "value": 5
+          }
+        },
+        {
+          "points": 3,
+          "label": "2–4",
+          "when": {
+            "kind": "gte",
+            "attr": "resourceCount",
+            "value": 2
+          }
+        },
+        {
+          "points": 0,
+          "label": "<2",
+          "when": {
+            "kind": "always"
+          }
+        }
+      ],
+      "inputs": [
+        {
+          "key": "resourceCount",
+          "type": "number",
+          "label": "Verified resources created",
+          "options": null,
+          "min": 0,
+          "max": null,
+          "helpText": null
+        }
+      ],
+      "cap": null,
+      "quality": null,
+      "impact": null,
+      "pendingSource": null,
+      "exampleAttributes": {
+        "resourceCount": 3
+      }
+    },
+    {
+      "id": 70,
+      "cluster": 9,
+      "seq": 7,
+      "name": "Invited / expert talk (national level)",
+      "maxPoints": 8,
+      "verifier": "HOD",
+      "mode": "UPLOAD",
+      "accrual": "BEST",
+      "rubricText": "National=8 · State/Regional=4 · Invited webinar=2",
+      "rungs": [
+        {
+          "points": 8,
+          "label": "National",
+          "when": {
+            "kind": "eq",
+            "attr": "talkScope",
+            "value": "NATIONAL"
+          }
+        },
+        {
+          "points": 4,
+          "label": "State / Regional",
+          "when": {
+            "kind": "eq",
+            "attr": "talkScope",
+            "value": "STATE_REGIONAL"
+          }
+        },
+        {
+          "points": 2,
+          "label": "Invited webinar",
+          "when": {
+            "kind": "eq",
+            "attr": "talkScope",
+            "value": "WEBINAR"
+          }
+        },
+        {
+          "points": 0,
+          "label": "none",
+          "when": {
+            "kind": "always"
+          }
+        }
+      ],
+      "inputs": [
+        {
+          "key": "talkScope",
+          "type": "enum",
+          "label": "Talk scope",
+          "options": [
+            {
+              "value": "NATIONAL",
+              "label": "National"
+            },
+            {
+              "value": "STATE_REGIONAL",
+              "label": "State / Regional"
+            },
+            {
+              "value": "WEBINAR",
+              "label": "Invited webinar"
+            }
+          ],
+          "min": null,
+          "max": null,
+          "helpText": null
+        }
+      ],
+      "cap": null,
+      "quality": null,
+      "impact": null,
+      "pendingSource": null,
+      "exampleAttributes": {
+        "talkScope": "NATIONAL"
+      }
+    }
+  ]
+}
