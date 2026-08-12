@@ -1,5 +1,8 @@
 import Shell from './Shell'
 import { currentUser } from './user'
+import { useLiveData } from './useLiveData'
+import { score } from './score'
+import type { DashboardScoreResponse } from './fei1000.types'
 
 import iconPlus from './assets/dash/plus.svg'
 import iconPause from './assets/dash/pause.svg'
@@ -15,12 +18,47 @@ import docGold from './assets/dash/doc-gold.svg'
 import docCoral from './assets/dash/doc-coral.svg'
 import docGreen from './assets/dash/doc-green.svg'
 
-const stats = [
-  { label: 'Publications', value: '24', caption: '+3 this month', highlighted: true },
-  { label: 'Active Courses', value: '6', caption: 'Spring semester' },
-  { label: 'Research Projects', value: '4', caption: '2 ongoing' },
-  { label: 'Pending Approvals', value: '2', caption: 'Needs review' },
-]
+/**
+ * The KPI row.
+ *
+ * Only two of these have a deployed service behind them today: the PRAJNA
+ * score (M14) and the pending-approval count (M13). Publications would need
+ * M9 and active courses M8, neither of which is deployed — so rather than
+ * showing invented numbers those tiles say so.
+ */
+function buildStats(
+  score: DashboardScoreResponse,
+  pendingCount: number | null,
+  reportCount: number | null,
+) {
+  return [
+    {
+      label: 'PRAJNA Score',
+      value: Number.isInteger(score.totalScore) ? `${score.totalScore}` : score.totalScore.toFixed(1),
+      caption: `${score.tier} · of ${score.maxScore}`,
+      highlighted: true,
+      live: true,
+    },
+    {
+      label: 'Pending Approvals',
+      value: pendingCount === null ? '—' : `${pendingCount}`,
+      caption: pendingCount === null ? 'Unavailable' : pendingCount === 0 ? 'Nothing awaiting you' : 'Needs review',
+      live: pendingCount !== null,
+    },
+    {
+      label: 'Reports Generated',
+      value: reportCount === null ? '—' : `${reportCount}`,
+      caption: reportCount === null ? 'Unavailable' : 'This campus',
+      live: reportCount !== null,
+    },
+    {
+      label: 'Publications',
+      value: '—',
+      caption: 'Module 9 not deployed',
+      live: false,
+    },
+  ]
+}
 
 // height in px, tone, weekday label — straight from the design
 const chart = [
@@ -61,6 +99,21 @@ const goals = [
 
 const GOAL_PERCENT = 68
 
+/**
+ * Stands in for a panel whose backing service is not deployed.
+ *
+ * Deliberately states WHICH module is missing. A vague "no data" reads as
+ * "this faculty member has none", which is a different and wrong claim.
+ */
+function PanelUnavailable({ title, detail }: { title: string; detail: string }) {
+  return (
+    <div className="panel-empty">
+      <p className="panel-empty__title">{title}</p>
+      <p className="panel-empty__detail">{detail}</p>
+    </div>
+  )
+}
+
 /** "Good morning" before noon, "Good afternoon" to 17:00, else "Good evening". */
 function greeting(d: Date): string {
   const h = d.getHours()
@@ -71,7 +124,10 @@ function greeting(d: Date): string {
 
 export default function Dashboard() {
   const user = currentUser()
+  const live = useLiveData()
   const now = new Date()
+
+  const stats = buildStats(score, live.pendingCount, live.reports?.length ?? null)
 
   return (
     <Shell active="Home">
@@ -155,19 +211,29 @@ export default function Dashboard() {
                   New
                 </button>
               </div>
-              <ul className="list">
-                {publications.map((p) => (
-                  <li className="row-item" key={p.title}>
-                    <span className={`iconsq iconsq--${p.tint}`}>
-                      <img src={p.icon} alt="" />
-                    </span>
-                    <span className="row-item__text">
-                      <span className="row-item__title">{p.title}</span>
-                      <span className="row-item__meta">{p.meta}</span>
-                    </span>
-                  </li>
-                ))}
-              </ul>
+              {user.isReal ? (
+                // Publications come from Module 9 (Research), which has no
+                // deployed stack. Showing sample papers here would read as the
+                // faculty member's real record.
+                <PanelUnavailable
+                  title="Not available yet"
+                  detail="Publications come from Module 9 (Research & Innovation), which is not deployed."
+                />
+              ) : (
+                <ul className="list">
+                  {publications.map((p) => (
+                    <li className="row-item" key={p.title}>
+                      <span className={`iconsq iconsq--${p.tint}`}>
+                        <img src={p.icon} alt="" />
+                      </span>
+                      <span className="row-item__text">
+                        <span className="row-item__title">{p.title}</span>
+                        <span className="row-item__meta">{p.meta}</span>
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              )}
             </section>
           </div>
 
@@ -180,21 +246,30 @@ export default function Dashboard() {
                   Add Member
                 </button>
               </div>
-              <ul className="list">
-                {mentees.map((m) => (
-                  <li className="row-item" key={m.name}>
-                    <span className={`avatar avatar--${m.avatar}`}>{m.initials}</span>
-                    <span className="row-item__text">
-                      <span className="row-item__title">{m.name}</span>
-                      <span className="row-item__meta">{m.work}</span>
-                    </span>
-                    <span className={`badge badge--${statusTone[m.status]}`}>
-                      <span className="dot" />
-                      {m.status}
-                    </span>
-                  </li>
-                ))}
-              </ul>
+              {user.isReal ? (
+                // Ph.D. scholars / mentees are Module 9 data; supervision
+                // records would come from M8. Neither is deployed.
+                <PanelUnavailable
+                  title="Not available yet"
+                  detail="Mentee records come from Modules 8 and 9, which are not deployed."
+                />
+              ) : (
+                <ul className="list">
+                  {mentees.map((m) => (
+                    <li className="row-item" key={m.name}>
+                      <span className={`avatar avatar--${m.avatar}`}>{m.initials}</span>
+                      <span className="row-item__text">
+                        <span className="row-item__title">{m.name}</span>
+                        <span className="row-item__meta">{m.work}</span>
+                      </span>
+                      <span className={`badge badge--${statusTone[m.status]}`}>
+                        <span className="dot" />
+                        {m.status}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              )}
             </section>
 
             <section className="card goals">

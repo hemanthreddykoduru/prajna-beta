@@ -829,3 +829,39 @@
   color: #8a6420;
   font-size: 13px;
 }
+
+/* Panel whose backing microservice is not deployed. */
+.panel-empty {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  justify-content: center;
+  min-height: 140px;
+  padding: 18px;
+  border: 1px dashed #d8dee7;
+  border-radius: 10px;
+  background: #fafbfc;
+  text-align: center;
+}
+.panel-empty__title {
+  margin: 0;
+  color: #5b6472;
+  font-size: 14px;
+  font-weight: 600;
+}
+.panel-empty__detail {
+  margin: 0;
+  color: #8a93a1;
+  font-size: 12.5px;
+  line-height: 1.45;
+}
+/* Marks a KPI tile that is showing a real, live figure. */
+.stat__live {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin-left: 6px;
+  border-radius: 50%;
+  background: #21a366;
+  vertical-align: middle;
+}

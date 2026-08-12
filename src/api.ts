@@ -170,6 +170,18 @@ export async function fetchLeaderboard(params: {
 export const fetchMyRanking = (facultyId: string) =>
   request<any>(`/leaderboard/rankings/${encodeURIComponent(facultyId)}`)
 
+// ── Reports (Module 17) ──────────────────────────────────────────────────────
+
+/** `GET /reports` — generated reports for the caller's campus. */
+export const fetchReports = () => request<any>('/reports')
+
+/**
+ * `GET /reports/readiness` — inspection readiness score.
+ * Role-gated: a FACULTY user gets 403 ("FACULTY role cannot view readiness
+ * score"). Treat that as "not for this role", not as a failure.
+ */
+export const fetchReadiness = () => request<any>('/reports/readiness')
+
 // ── Profile (Module 7) ───────────────────────────────────────────────────────
 
 /**
