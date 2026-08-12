@@ -57,6 +57,15 @@ async function request<T>(path: string, init: RequestInit = {}): Promise<T> {
   return res.json() as Promise<T>
 }
 
+/**
+ * Authenticated GET for any platform path.
+ *
+ * Exposed so module screens can be driven from the registry in `modules.ts`
+ * rather than each needing a bespoke client function — that is what lets a
+ * newly deployed service light up with no code change here.
+ */
+export const apiGet = <T,>(path: string): Promise<T> => request<T>(path)
+
 // ── Score (Module 14) ────────────────────────────────────────────────────────
 
 /** Half-open bands: the first band whose minScore you meet is yours. */

@@ -38,7 +38,7 @@ async function bootstrap() {
     { default: TierProgress },
     { default: History },
     { default: Leaderboard },
-    { default: Unavailable },
+    { default: ModulePage },
   ] = await Promise.all([
     import('./App.tsx'),
     import('./Dashboard.tsx'),
@@ -46,7 +46,7 @@ async function bootstrap() {
     import('./TierProgress.tsx'),
     import('./History.tsx'),
     import('./Leaderboard.tsx'),
-    import('./Unavailable.tsx'),
+    import('./ModulePage.tsx'),
   ])
 
   /** Sends unauthenticated visitors to the login screen. */
@@ -67,7 +67,7 @@ async function bootstrap() {
           <Route path="/prajnascore/tier" element={<Protected><TierProgress /></Protected>} />
           <Route path="/prajnascore/history" element={<Protected><History /></Protected>} />
           <Route path="/leaderboard" element={<Protected><Leaderboard /></Protected>} />
-          <Route path="/unavailable/:label" element={<Protected><Unavailable /></Protected>} />
+          <Route path="/m/:label" element={<Protected><ModulePage /></Protected>} />
         </Routes>
       </BrowserRouter>
     </StrictMode>,

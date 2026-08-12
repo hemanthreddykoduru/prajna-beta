@@ -1,6 +1,8 @@
 import Shell from './Shell'
 import { currentUser } from './user'
 import { useLiveData } from './useLiveData'
+import { useModuleData } from './useModuleData'
+import { MODULES, type ModuleSpec } from './modules'
 import { score } from './score'
 import type { DashboardScoreResponse } from './fei1000.types'
 
@@ -100,15 +102,59 @@ const goals = [
 const GOAL_PERCENT = 68
 
 /**
- * Stands in for a panel whose backing service is not deployed.
+ * A dashboard panel backed by one of the registry modules.
  *
- * Deliberately states WHICH module is missing. A vague "no data" reads as
- * "this faculty member has none", which is a different and wrong claim.
+ * Calls the service for real on every load. Until that module is deployed it
+ * explains which one is missing; the moment it goes live the same panel starts
+ * showing real rows, with no change here.
  */
-function PanelUnavailable({ title, detail }: { title: string; detail: string }) {
+function ModulePanel({ spec }: { spec: ModuleSpec }) {
+  const status = useModuleData(spec)
+
+  if (status.state === 'loading') return <p className="muted-13">Loading…</p>
+
+  if (status.state === 'ready') {
+    if (!status.rows.length) {
+      return (
+        <div className="panel-empty">
+          <p className="panel-empty__title">Nothing yet</p>
+          <p className="panel-empty__detail">
+            {spec.moduleNo} is live — you have no records here yet.
+          </p>
+        </div>
+      )
+    }
+    return (
+      <ul className="list">
+        {status.rows.slice(0, 4).map((row, i) => {
+          const r = (row ?? {}) as Record<string, unknown>
+          const title = r.title ?? r.name ?? r.awardName ?? `Item ${i + 1}`
+          const meta = r.journalName ?? r.organizer ?? r.status ?? r.achievementDate ?? ''
+          return (
+            <li className="row-item" key={i}>
+              <span className="row-item__text">
+                <span className="row-item__title">{String(title)}</span>
+                {meta ? <span className="row-item__meta">{String(meta)}</span> : null}
+              </span>
+            </li>
+          )
+        })}
+      </ul>
+    )
+  }
+
+  const detail =
+    status.state === 'forbidden'
+      ? status.reason
+      : status.state === 'unhealthy'
+        ? `${spec.moduleNo} is deployed but not responding.`
+        : `${spec.moduleName} (${spec.moduleNo}) is not deployed yet. This panel is already wired to it.`
+
   return (
     <div className="panel-empty">
-      <p className="panel-empty__title">{title}</p>
+      <p className="panel-empty__title">
+        {status.state === 'forbidden' ? 'Not available to your role' : `Waiting on ${spec.moduleNo}`}
+      </p>
       <p className="panel-empty__detail">{detail}</p>
     </div>
   )
@@ -212,13 +258,10 @@ export default function Dashboard() {
                 </button>
               </div>
               {user.isReal ? (
-                // Publications come from Module 9 (Research), which has no
-                // deployed stack. Showing sample papers here would read as the
-                // faculty member's real record.
-                <PanelUnavailable
-                  title="Not available yet"
-                  detail="Publications come from Module 9 (Research & Innovation), which is not deployed."
-                />
+                // Driven by the module registry: this calls M9 for real and
+                // renders whatever comes back, so it starts working by itself
+                // once Research is deployed.
+                <ModulePanel spec={MODULES.research} />
               ) : (
                 <ul className="list">
                   {publications.map((p) => (
@@ -247,12 +290,7 @@ export default function Dashboard() {
                 </button>
               </div>
               {user.isReal ? (
-                // Ph.D. scholars / mentees are Module 9 data; supervision
-                // records would come from M8. Neither is deployed.
-                <PanelUnavailable
-                  title="Not available yet"
-                  detail="Mentee records come from Modules 8 and 9, which are not deployed."
-                />
+                <ModulePanel spec={MODULES.teaching} />
               ) : (
                 <ul className="list">
                   {mentees.map((m) => (
