@@ -15,6 +15,7 @@ import navAi from './assets/dash/nav-ai.svg'
 import navLogout from './assets/dash/nav-logout.svg'
 import iconSearch from './assets/dash/search.svg'
 import iconBell from './assets/dash/notifications.svg'
+import prajnaLogo from './assets/PRAJNA-LOGO-CROP.jpeg'
 
 const nav = [
   { icon: navHome, label: 'Home', href: '/dashboard' },
@@ -36,8 +37,7 @@ export default function Shell({ active, children }: { active: string; children: 
     <div className="dash">
       <nav className="sidebar">
         <div className="sidebar__logo">
-          <span className="sidebar__mark" />
-          PRAJNA
+          <img src={prajnaLogo} alt="PRAJNA" style={{ maxHeight: '56px', width: 'auto', objectFit: 'contain' }} />
         </div>
         <p className="sidebar__section">MENU</p>
         <ul className="sidebar__nav">

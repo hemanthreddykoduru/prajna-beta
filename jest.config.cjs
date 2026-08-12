@@ -4,7 +4,12 @@ module.exports = {
   roots: ['<rootDir>/tests'],
   testMatch: ['**/*.test.ts'],
   transform: {
-    '^.+\\.tsx?$': 'ts-jest',
+    '^.+\\.tsx?$': ['ts-jest', {
+      tsconfig: {
+        esModuleInterop: true,
+        types: ['jest', 'node']
+      }
+    }],
   },
   collectCoverage: true,
   coverageDirectory: 'coverage',
