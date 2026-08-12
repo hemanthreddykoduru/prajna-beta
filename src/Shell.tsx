@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react'
 import './Dashboard.css'
+import { currentUser } from './user'
 
 import navHome from './assets/dash/nav-home.svg'
 import navScore from './assets/dash/nav-score.svg'
@@ -33,6 +34,8 @@ const nav = [
 
 /** Sidebar + topbar chrome shared by every signed-in page. */
 export default function Shell({ active, children }: { active: string; children: ReactNode }) {
+  const user = currentUser()
+
   return (
     <div className="dash">
       <nav className="sidebar">
@@ -69,10 +72,12 @@ export default function Shell({ active, children }: { active: string; children: 
             <img src={iconBell} alt="" />
           </button>
           <div className="profile">
-            <span className="avatar avatar--green">AR</span>
+            <span className="avatar avatar--green">{user.initials}</span>
             <span className="profile__identity">
-              <span className="profile__name">Dr. Ananya Rao</span>
-              <span className="profile__meta">Computer Science &amp; Engineering · Bengaluru</span>
+              <span className="profile__name">{user.name}</span>
+              <span className="profile__meta">
+                {[user.department, user.campus].filter(Boolean).join(' · ')}
+              </span>
             </span>
           </div>
         </header>

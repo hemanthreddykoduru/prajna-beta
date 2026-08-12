@@ -1,4 +1,5 @@
 import Shell from './Shell'
+import { currentUser } from './user'
 
 import iconPlus from './assets/dash/plus.svg'
 import iconPause from './assets/dash/pause.svg'
@@ -60,13 +61,40 @@ const goals = [
 
 const GOAL_PERCENT = 68
 
+/** "Good morning" before noon, "Good afternoon" to 17:00, else "Good evening". */
+function greeting(d: Date): string {
+  const h = d.getHours()
+  if (h < 12) return 'Good morning'
+  if (h < 17) return 'Good afternoon'
+  return 'Good evening'
+}
+
 export default function Dashboard() {
+  const user = currentUser()
+  const now = new Date()
+
   return (
     <Shell active="Home">
       <div className="pagehead">
-            <h1>Good morning, Dr. Ananya Rao</h1>
-            <p>Sunday, 29 June 2026 · Here's what needs you today.</p>
+            <h1>
+              {greeting(now)}, {user.name}
+            </h1>
+            <p>
+              {now.toLocaleDateString(undefined, {
+                weekday: 'long',
+                day: 'numeric',
+                month: 'long',
+                year: 'numeric',
+              })}
+              {" · Here's what needs you today."}
+            </p>
           </div>
+
+          {!user.isReal && (
+            <p className="demo-banner">
+              Demo mode — no backend configured. Figures below are sample data.
+            </p>
+          )}
 
           <div className="row row--kpis">
             {stats.map((s) => (

@@ -818,3 +818,14 @@
     min-height: 280px;
   }
 }
+
+/* Shown when the app is running on bundled sample data rather than live APIs. */
+.demo-banner {
+  margin: 0 0 16px;
+  padding: 10px 14px;
+  border: 1px solid #f0d9a8;
+  border-radius: 8px;
+  background: #fdf8ec;
+  color: #8a6420;
+  font-size: 13px;
+}
