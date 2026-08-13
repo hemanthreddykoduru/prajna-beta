@@ -8,6 +8,7 @@ import PrajnaScore from './PrajnaScore.tsx'
 import TierProgress from './TierProgress.tsx'
 import History from './History.tsx'
 import Profile from './Profile.tsx'
+import Achievements from './Achievements.tsx'
 import ProtectedRoute from './ProtectedRoute.tsx'
 import { AuthProvider } from './AuthContext.tsx'
 import {
@@ -73,6 +74,7 @@ createRoot(document.getElementById('root')!).render(
           <Route element={<ProtectedRoute />}>
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/profile" element={<Profile />} />
+        <Route path="/achievements" element={<Achievements />} />
             <Route path="/profile/research" element={<ProfileResearch />} />
             <Route path="/profile/research/new" element={<AddResearch />} />
             <Route path="/profile/research/grant" element={<AddGrant />} />

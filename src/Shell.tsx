@@ -24,7 +24,7 @@ const nav = [
   { icon: navTeaching, label: 'Teaching' },
   { icon: navResearch, label: 'Research' },
   { icon: navAdmin, label: 'Admin' },
-  { icon: navAchievements, label: 'Achievements' },
+  { icon: navAchievements, label: 'Achievements', href: '/achievements' },
   { icon: navFdp, label: 'FDP & Growth' },
   { icon: navTodo, label: 'To-Do' },
   { icon: navLeaderboard, label: 'Leaderboard' },
